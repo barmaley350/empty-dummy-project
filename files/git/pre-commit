@@ -1,0 +1,30 @@
+#!/bin/sh
+# После обновления скрипата нужно его скопировать в git/hooks
+# cp files/git/pre-commit .git/hooks
+
+PATH_TO_BACKEND="services/backend"
+#$RUFF_CHECK_FIX="--fix"
+RUFF_CHECK_FIX=""
+RUFF_FORMAT_CHECK="--check"
+RUFF_FORMAT_DIFF="--diff"
+
+cd $PATH_TO_BACKEND
+
+# ruff check
+pipenv run ruff check $RUFF_CHECK_FIX
+
+RUFF_CHECK_EXIT_CODE=$?
+if [ $RUFF_CHECK_EXIT_CODE -eq 2 ]; then
+    exit $RUFF_CHECK_EXIT_CODE
+fi
+
+# ruff format
+pipenv run ruff format $RUFF_FORMAT_CHECK $RUFF_FORMAT_DIFF
+
+RUFF_FORMAT_EXIT_CODE=$?
+if [ $RUFF_FORMAT_EXIT_CODE -ne 0 ]; then
+    exit $RUFF_FORMAT_EXIT_CODE
+fi
+
+# for test
+# exit 1

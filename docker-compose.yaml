@@ -1,0 +1,100 @@
+volumes:
+  db-data:
+  static_volume:
+
+networks:
+  internal-net:
+
+services:
+  # ----------------------------------------------------------------------------
+  # nginx proxy server
+  # ----------------------------------------------------------------------------
+  service.nginx:
+    build:
+      context: .
+      dockerfile: ./services/nginx/Dockerfile
+    ports:
+      - 1338:80 # Измените 1338 на любой другой свободный локальный порт. Например, 1340
+    depends_on:
+      - service.frontend
+    volumes:
+      - static_volume:/usr/share/nginx/html/static
+    restart: unless-stopped
+    networks:
+      - internal-net
+
+  # ----------------------------------------------------------------------------
+  # nuxt frontend
+  # ----------------------------------------------------------------------------
+  service.frontend:
+    build:
+      context: .
+      dockerfile: ./services/frontend/Dockerfile
+    command: "npm run dev -- -o"
+    expose:
+      - 5173
+    volumes:
+      - ./services/frontend:/app
+    env_file:
+      - ./services/frontend/.env
+    restart: unless-stopped
+    networks:
+      - internal-net
+
+  # ----------------------------------------------------------------------------
+  # django backend
+  # ----------------------------------------------------------------------------
+  service.backend:
+    build:
+      context: .
+      dockerfile: ./services/backend/Dockerfile
+    expose:
+      - 8000
+    volumes:
+      - ./services/backend:/app
+      - static_volume:/app/static
+    env_file:
+      - ./services/backend/.env
+    depends_on:
+      - service.db_postgres
+    restart: unless-stopped
+    networks:
+      - internal-net
+    command: >
+      sh -c "./run_before.sh
+      && pipenv run gunicorn -c gunicorn.py settings.wsgi:application"
+
+  # ----------------------------------------------------------------------------
+  # database
+  # ----------------------------------------------------------------------------
+  service.db_postgres:
+    image: postgres
+    expose:
+      - 5432
+    volumes:
+      # - db-data:/var/lib/postgresql/data
+      # - db-data:/var/lib/postgresql/MAJOR/docker
+      # - ./services/postgres/db:/var/lib/postgresql/MAJOR/docker
+      # - ./services/postgres/db:/var/lib/postgresql/18/docker
+      - db-data:/var/lib/postgresql/18/docker
+    env_file:
+      - ./services/backend/.env
+    restart: unless-stopped
+    networks:
+      - internal-net
+
+  # ----------------------------------------------------------------------------
+  # adminer
+  # ----------------------------------------------------------------------------
+  service.adminer:
+    image: adminer
+    depends_on:
+      - service.db_postgres
+    ports:
+      - 8080
+    environment:
+      ADMINER_DEFAULT_SERVER:  service.db_postgres
+    restart: unless-stopped
+    networks:
+      - internal-net
+
