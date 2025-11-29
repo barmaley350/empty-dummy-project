@@ -145,10 +145,11 @@ service.nginx:
 ```
 docker compose up --build
 ```
-Django Админ по умолчанию уже создан. Имя пользователя — `root`. Для смены пароля выполните команду, предварительно заменив `<project_name>` на имя вашего проекта (название корневой папки вашего проекта).
+
+Для создания createsuperuser django admin выполните комманду ниже где `<project_name>` название вашей коневой папки проекта
 
 ```
-docker exec -it <project_name>-service.backend-1 pipenv run python3 manage.py changepassword root
+docker exec -it <project_name>-service.backend-1 pipenv run python3 manage.py createsuperuser
 ```
 
 Для локальной работы с проектом (добавление/удаление модулей) вам понадобятся:
