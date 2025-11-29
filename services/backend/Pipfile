@@ -9,6 +9,9 @@ djangorestframework = "*"
 gunicorn = "*"
 python-dotenv = "*"
 psycopg2-binary = "*"
+sphinx = "*"
+sphinx-rtd-theme = "*"
+sphinxcontrib-django = "*"
 
 [dev-packages]
 django-debug-toolbar = "*"
