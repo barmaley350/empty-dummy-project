@@ -61,3 +61,34 @@ pipenv run ruff format
 ```
 pipenv run ruff format --check --diff
 ```
+
+# factory-boy / faker
+В проекте по умолчанию создано приложение `apps/testapp` с одной моделью `Projects`. 
+Наполнить модель данными можно через `shell_plus`
+который уже установлен и минимально настроен в файле `settings/setting.py` для использования `apps/testapp/factories.py`. 
+```
+# shell_plus settings
+SHELL_PLUS_IMPORTS = [
+    "from apps.testapp.factories import *",  # Imports all factories from factories.py
+]
+```
+Работа с shell_plus происходит в рамках контейнера.
+```
+docker exec -it <project_name>-service.backend-1 pipenv run python3 manage.py shell_plus
+```
+Где `<project_name>` название корневой папки вашего проекта. Например, если коневая папка называется `empty_dummy_project` то команда будет выглядеть так 
+```
+docker exec -it empty_dummy_project-service.backend-1 pipenv run python3 manage.py shell_plus
+```
+После успешного выполенения команды можем наполнить модель `Project` из `apps/testapp/models.py` произвольными данными
+```
+>>> ProjectFactory.create_batch(100)
+>>> Project.objects.count()
+100
+>>> p = Project.objects.get(pk=1)
+>>> p.title
+'Падаль правильный проход потом устройство. Коллектив ведь находить медицина вряд.'
+>>> p.description
+'Пропаганда эффект космос доставать. Хозяйка спорт сутки ночь багровый мальчишка. Издали терапия остановить.\nЛететь адвокат тусклый аж наступать сверкать провал витрина. Трубка солнце что изображать сынок очко направо. Мгновение стакан тусклый инфекция сомнительный успокоиться.\nБлин совещание правильный слишком. Сомнительный правление спасть. Непривычный потом страсть нож конференция валюта выкинуть.'
+>>> 
+```
