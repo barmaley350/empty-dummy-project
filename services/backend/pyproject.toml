@@ -21,7 +21,6 @@ extend-exclude = [
     ".tox",
     ".venv",
     "venv",
-    "docs",
     "__pycache",
     "**/migrations/*",
     "manage.py",
