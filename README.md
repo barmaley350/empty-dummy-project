@@ -21,15 +21,47 @@
 По умолчанию установлены и настроены следующие модули для backend и frontend
 
 ## backend/django
-1. Django REST Framework (DRF)
-2. Django DevTools 
-3. Ruff (check default = ALL)
-4. django_extensions
+```
+django-debug-toolbar==6.1.0
+├── django [required: >=4.2.9, installed: 5.2.8]
+│   ├── asgiref [required: >=3.8.1, installed: 3.11.0]
+│   └── sqlparse [required: >=0.3.1, installed: 0.5.4]
+└── sqlparse [required: >=0.2, installed: 0.5.4]
+django-extensions==4.1
+└── django [required: >=4.2, installed: 5.2.8]
+    ├── asgiref [required: >=3.8.1, installed: 3.11.0]
+    └── sqlparse [required: >=0.3.1, installed: 0.5.4]
+djangorestframework==3.16.1
+└── django [required: >=4.2, installed: 5.2.8]
+    ├── asgiref [required: >=3.8.1, installed: 3.11.0]
+    └── sqlparse [required: >=0.3.1, installed: 0.5.4]
+factory-boy==3.3.3
+└── faker [required: >=0.7.0, installed: 38.2.0]
+    └── tzdata [required: Any, installed: 2025.2]
+gunicorn==23.0.0
+└── packaging [required: Any, installed: 25.0]
+psycopg2-binary==2.9.11
+python-dotenv==1.2.1
+ruff==0.14.7
+
+```
 
 ## frontend/nuxtjs
-1. @nuxt/ui
-2. @nuxt/tailwindscss
-3. @nuxt/icon
+```
+├── @emnapi/core@1.7.1 extraneous
+├── @emnapi/runtime@1.7.1 extraneous
+├── @emnapi/wasi-threads@1.1.0 extraneous
+├── @iconify-json/lucide@1.2.75
+├── @napi-rs/wasm-runtime@1.0.7 extraneous
+├── @nuxt/icon@2.1.0
+├── @nuxt/ui@4.2.1
+├── @nuxtjs/tailwindcss@6.14.0
+├── @tybys/wasm-util@0.10.1 extraneous
+├── nuxt@4.2.1
+├── typescript@5.9.3
+├── vue-router@4.6.3
+└── vue@3.5.25
+```
 
 `frontend/nuxtjs` доступен `http://localhost:1338/`
 
