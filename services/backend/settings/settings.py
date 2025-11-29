@@ -131,7 +131,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "ru"
 
 TIME_ZONE = "UTC"
 
@@ -177,3 +177,8 @@ DEBUG_TOOLBAR_CONFIG = {
     "RESULTS_CACHE_SIZE": 1000,
     "SQL_WARNING_THRESHOLD": 2000,
 }
+
+# shell_plus settings
+SHELL_PLUS_IMPORTS = [
+    "from apps.testapp.factories import *",  # Imports all factories from factories.py
+]
