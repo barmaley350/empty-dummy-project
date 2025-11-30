@@ -179,6 +179,11 @@ DEBUG_TOOLBAR_CONFIG = {
     "SQL_WARNING_THRESHOLD": 2000,
 }
 
+
+# Для отображения правильного url:port в django api web pagination
+# Важно для отображения пагинации в BrowsableAPI
+USE_X_FORWARDED_HOST = True
+
 # shell_plus settings
 SHELL_PLUS_IMPORTS = [
     "from apps.testapp.factories import *",  # Imports all factories from factories.py
