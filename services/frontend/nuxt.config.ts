@@ -1,11 +1,18 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  // vue: {
+  //   compilerOptions: {
+  //     compatConfig: {
+  //       MODE: 3 // Максимальная детализация ошибок
+  //     }
+  //   }
+  // },
   devServer: {
     port: 5173,
     host: '0.0.0.0'  // Разрешить подключения из Docker
   },
   runtimeConfig: {
-    baseURL: 'http://service.backend:8000/api/list/',
+    baseURL: 'http://service.backend:8000/api/',
     public: {
     },
   },
