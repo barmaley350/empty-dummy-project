@@ -36,6 +36,38 @@ pipenv run make html
 ```
 В остальном читайте документацию
 
+# PyTest
+## Структура каталогов
+```
+% find ./tests 
+./tests
+./tests/unit
+./tests/unit/testapp
+./tests/unit/testapp/conftest.py
+./tests/unit/testapp/__init__.py
+./tests/unit/testapp/models
+./tests/unit/testapp/models/__init__.py
+./tests/unit/testapp/models/test_project_models.py
+./tests/unit/conftest.py
+./tests/unit/__init__.py
+./tests/integration
+./tests/integration/conftest.py
+./tests/integration/__init__.py
+./tests/conftest.py
+./tests/e2e
+./tests/e2e/conftest.py
+./tests/e2e/__init__.py
+./tests/__init__.py
+```
+## Запуск тестов
+Запуск тестов происходит в контейнере
+```
+docker exec -it empty_dummy_project-service.backend-1 pipenv run pytest
+```
+Где `empty_dummy_project` название вашей корневой папки проекта имя которой участвует в формировании имени контейнера.
+
+Для дополнительного удобства вы можете содать `command alias` в настройках вашего терминала для более быстрого запуска
+
 # ruff
 ## `pre-commit`и собственный велосипед
 Модуль `pre-commit` работает относительно текущей папки запуска git. В данном шаблоне приложения структура папок организованна по другому. В целом все работает также просто на самописном `sh` скрипте без использования модуля `pre-commit`. Также немного изменена логика - git commit не пройдет если есть любые изменения `ruff format`. Поэтому счала `ruff fromat` а потому уже `git commit` 
