@@ -14,7 +14,7 @@ services:
       context: .
       dockerfile: ./services/nginx/Dockerfile
     ports:
-      - 1338:80 # Измените 1338 на любой другой свободный локальный порт. Например, 1340
+      - 1338:80 # <--- Измените 1338 на любой другой свободный локальный порт. Например, 1340
     depends_on:
       - service.frontend
     volumes:
@@ -92,7 +92,7 @@ services:
     depends_on:
       - service.db_postgres
     ports:
-      - 8099:8080
+      - 8099:8080 # <--- Измените порт 8090 на любой свободный, например, 8100
     environment:
       ADMINER_DEFAULT_SERVER:  service.db_postgres
     restart: unless-stopped
