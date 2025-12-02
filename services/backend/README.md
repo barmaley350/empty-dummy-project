@@ -92,3 +92,20 @@ docker exec -it empty_dummy_project-service.backend-1 pipenv run python3 manage.
 'Пропаганда эффект космос доставать. Хозяйка спорт сутки ночь багровый мальчишка. Издали терапия остановить.\nЛететь адвокат тусклый аж наступать сверкать провал витрина. Трубка солнце что изображать сынок очко направо. Мгновение стакан тусклый инфекция сомнительный успокоиться.\nБлин совещание правильный слишком. Сомнительный правление спасть. Непривычный потом страсть нож конференция валюта выкинуть.'
 >>> 
 ```
+# Настройка окружения для комфортной работы
+Для быстрого доступа в контейнер вы можете использовать `commnad alias` в вашем `shell`
+
+Например, для `zsh` можно добавить `command alias` в конфиг `.zshrc`
+Имена контенеров имеют префикс названия вашей корневой папки проекта. Замените `<project_name>` на название вашей корневой папки проекта. Например, если вана коневая папка проекта называется `empty_dummy_project` то в `zshrc` нужно добавить следующие строки: 
+1. `docker-dummy-shell` - запуск пустого shell в контейнере
+2. `docker-dummy-shell-plus` - запуск shell_plus
+3. `docker-dummy-shell-pytest` - запуск pytest
+
+```
+alias docker-dummy-shell='docker exec -it empty_dummy_project-service.backend-1 /bin/bash'
+alias docker-dummy-shell-plus='docker exec -it empty_dummy_project-service.backend-1 pipenv run python3 manage.py shell_plus'
+alias docker-dummy-shell-pytest='docker exec -it empty_dummy_project-service.backend-1 pipenv run pytest'
+```
+Вы также можете настроить терминал как вам удобно. Например, ubuntu terminal 
+
+![img_1](../../files/img/terminal.png)
