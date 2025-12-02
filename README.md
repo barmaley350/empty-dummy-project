@@ -101,12 +101,21 @@ coverage = "*"
 
 # Установка
 ```
-git clone <repo_name> <project_name>
+mkrdir test-project
+```
+```
+cd test-project
+```
+```
+git clone https://github.com/barmaley350/empty-dummy-project.git .
 ```
 
 # Настройка
 ## Настройки Backend
-
+Установите `pipenv` и находясь в каталоге `services/backend` выполните команду
+```
+pipenv sync --dev
+```
 Выполните настройки backend 
 ```
 cp services/backend/.env.example services/backend/.env
@@ -127,15 +136,15 @@ POSTGRES_PASSWORD="" # <--- Укажите
 POSTGRES_HOST=service.db_postgres
 POSTGRES_PORT=5432
 ```
-Для создания `SECRET_KEY` можете воспользоваться следующи кодом (`%` вводить не надо. Это приглашение командной строки)
+Для создания `SECRET_KEY` можете воспользоваться следующи кодом
 ```
-% cd services/backend/
-% pipenv run python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
+cd services/backend/
 ```
-Установите `pipenv` и находясь в каталоге `services/backend` выполните команду
 ```
-pipenv sync --dev
+pipenv run python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
 ```
+Вывод команды скопируйте и впятьте в `SECRET_KEY`
+
 ## Настройки Frontend
 Установите `nodejs` и `npm` и находясь в каталоге `services/frontend` выполните команду
 
@@ -144,7 +153,7 @@ npm install
 ```
 
 ## Настройки Docker
-По умолчанию `nginx` стартует на порту `1338`. Если данный порт у вас занят, то необходимо внести изменения в `docker-compose.yaml`. Внесите изменения в секцию `ports`. 
+По умолчанию `nginx` стартует на порту `1338` а `adminer` на порту `8099`. Если данные порты у вас занят (один или оба), то необходимо внести изменения в `docker-compose.yaml`. Внесите изменения в секцию `ports` для `nginx`
 
 ```
 service.nginx:
@@ -157,6 +166,20 @@ service.nginx:
       - service.frontend
     volumes:
       - static_volume:/usr/share/nginx/html/static
+    restart: unless-stopped
+    networks:
+      - internal-net
+```
+А также для `adminer`
+```
+  service.adminer:
+    image: adminer
+    depends_on:
+      - service.db_postgres
+    ports:
+      - 8099:8080 # <--- Измените порт 8090 на любой свободный, например, 8100
+    environment:
+      ADMINER_DEFAULT_SERVER:  service.db_postgres
     restart: unless-stopped
     networks:
       - internal-net
