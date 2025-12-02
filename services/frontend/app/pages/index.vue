@@ -1,62 +1,94 @@
-<script setup>
-definePageMeta({
-    layout: 'empty',
-})
-useHead({
-    title: 'Ура! У вас все получилось!',
-    meta: [
-        { name: 'description', content: 'Стратовая страница' }
-    ]
-})
-const colorMode = useColorMode()
-
-const isDark = computed(() => colorMode.value === 'dark')
-
-function toggleDarkMode() {
-    colorMode.preference = isDark.value ? 'light' : 'dark'
-}
-
-</script>
 <template>
-
-    <div class="flex items-center justify-center h-screen">
-        <div class="flex flex-col w:3/3 md:w-2/3 lg:w-1/3">
-            <div class="justify-items-center">
+    <div class="flex flex-col gap-20">
+        <div class="
+            flex flex-col gap-10
+            border 
+            border-gray-100
+            bg-gray-200 
+            rounded-sm 
+            p-10 
+            dark:bg-gray-900
+            dark:border-gray-600">
+            <div class="flex justify-center">
+                <LayoutTitle class="text-9xl font-bold">Тестовый проект</LayoutTitle>
             </div>
-            <div class="flex flex-col rounded-sm border border-gray-200 ">
-                <div class="flex justify-between bg-gray-500 p-3 rounded-t-sm items-center">
-                    <div class="text-xl text-center text-white">
-                        Добро пожаловать!
-                    </div>
-                    <button @click="toggleDarkMode" class="px-2 py-1 flex items-center text-white">
-                        <span v-if="!isDark">
-                            <Icon name="i-lucide:moon" />
-                        </span>
-                        <span v-else>
-                            <Icon name="i-lucide:sun" />
-                        </span>
-                    </button>
-                </div>
 
-                <div class="p-5 space-y-5 text-center">
-                    Если вы видите эту страницу, значит, у вас всё получилось и вы всё сделали правильно
-                </div>
-                <div
-                    class="p-3 text-center rounded-b-sm border-t border-gray-200 gap-3">
-                    Есть вопросы или предложения?<br>
-                    Пишите — всегда открыт к диалогу <span class="
-                    bg-gray-300 
-                    px-2 py-1 
-                    rounded-sm
-                    dark:text-gray-700">@tg_nick</span>
-                </div>
-                <div class="flex p-3 
-            rounded-b-sm border-t border-gray-200 justify-center 
-            items-center gap-3 bg-gray-100 dark:bg-gray-300 dark:text-gray-600">
-                    <a href="/admin/">Django Admin</a>
-                </div>
+
+            <div class="flex justify-center text-center mt-5">
+                <LayoutTitle class="text-3xl text-gray-500 dark:text-gray-300">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, distinctio. Mollitia tempore ad et
+                    ipsa qui id nobis explicabo laborum, ut, optio aperiam vel fuga voluptatibus quo. In, libero
+                    accusamus.
+                </LayoutTitle>
+            </div>
+            <div class="flex justify-center">
+                <ButtonsGreen class="text-5xl">Тестовая кнопка</ButtonsGreen>
             </div>
 
         </div>
+
+        <div class="flex justify-center">
+            <LayoutText>
+                <template #header-primary>
+                    <LayoutTitle class="text-5xl font-bold underline">
+                        Header Primary
+                    </LayoutTitle>
+                </template>
+                <template #header-secondary>
+                    <LayoutTitle class="text-2xl">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum ea dignissimos eveniet expedita
+                        in officiis quisquam, blanditiis ipsum pariatur tempore. Odio dicta esse cum totam. Facere
+                        accusamus quae placeat labore?
+                    </LayoutTitle>
+                </template>
+            </LayoutText>
+        </div>
+
+        <div class="flex justify-center gap-5">
+            <LayoutCard v-for="index in 3" :key="index">
+                <template #title>
+                    <LayoutTitle class="text-2xl">Title {{ index }}</LayoutTitle>
+                </template>
+                <template #description>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam itaque fuga ratione? Nostrum,
+                    suscipit natus reiciendis, delectus officiis minima consequatur illum optio consectetur blanditiis
+                    saepe eius culpa officia at. Id.
+                </template>
+            </LayoutCard>
+        </div>
+
+
+
+        <div class="flex justify-center">
+            <LayoutText>
+                <template #header-primary>
+                    <LayoutTitle class="text-5xl font-bold underline">
+                        Header Primary
+                    </LayoutTitle>
+                </template>
+                <template #header-secondary>
+                    <LayoutTitle class="text-2xl">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit
+                    </LayoutTitle>
+                </template>
+            </LayoutText>
+        </div>
+
+        <div class="grid grid-cols-3 gap-5">
+            <LayoutCard v-for="index in 6" :key="index">
+                <template #title>
+                    <LayoutTitle class="text-2xl">Title {{ index }}</LayoutTitle>
+                    <!-- <TitlesRegularNormal></TitlesRegularNormal> -->
+                </template>
+                <template #description>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus excepturi et nostrum. Eius non,
+                    sit
+                    excepturi dicta libero ratione voluptate facere quam cumque obcaecati exercitationem ullam rem
+                    sapiente,
+                    ad itaque.
+                </template>
+            </LayoutCard>
+        </div>
     </div>
+
 </template>
