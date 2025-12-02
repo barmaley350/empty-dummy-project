@@ -12,4 +12,4 @@ class ProjectSerializer(serializers.ModelSerializer):
         """Docstring for Meta."""
 
         model = Project
-        fields = ["title", "description"]  # noqa: RUF012
+        fields = ["title", "description", "owner"]  # noqa: RUF012
