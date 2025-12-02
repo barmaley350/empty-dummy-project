@@ -6,7 +6,11 @@
   - [Установленные и настроенные модули](#установленные-и-настроенные-модули)
     - [Backend/Django](#backend-django)
     - [Frontend/Nuxtjs](#frontend-nuxtjs)
-- [Установка и настройка](#установка-и-настройка)
+- [Установка](#установка)
+- [Настройка](#настройка)
+  - [Backend (обязательно)](#backend)
+  - [Docker (опционально)](#docker)
+- [Первый запуск](#запуск)
 - [Что нужно для локальной работы](#что-нужно-для-локальной-работы)
 - [Известные проблемы](#известные-проблемы)
 - [Roadmap](#roadmap)
@@ -85,19 +89,40 @@ coverage = "*"
 `cd services/frontend && npm list` для получения дополнительной 
 
 
-# Установка и настройка
+# Установка
 ```
 git clone <repo_name> <project_name>
 ```
+
+# Настройка
+## Backend
+
 Выполните настройки backend 
 ```
 cp services/backend/.env.example services/backend/.env
 ```
-Укажите необходимые нараметры подключения к базе данных а также django `SECRET_KEY`
+Для успешного старта необходимо указать всего два параметра - `POSTGRES_PASSWORD` и `SECRET_KEY`
 ```
-cd services/backend/
-pipenv run python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
+# Укажите SECRET_KEY
+SECRET_KEY='' # <--- Укажите
+DEBUG=True
+DJANGO_ALLOWED_HOSTS="'*'"
+
+DATABASE_TYPE="postgresql"
+POSTGRES_DB=dummy_db
+POSTGRES_USER=dummy_user
+
+# Укажите POSTGRES_PASSWORD
+POSTGRES_PASSWORD="" # <--- Укажите
+POSTGRES_HOST=service.db_postgres
+POSTGRES_PORT=5432
 ```
+Для создания `SECRET_KEY` можете воспользоваться следующи кодом (`%` вводить не надо. Это приглашение командной строки)
+```
+% cd services/backend/
+% pipenv run python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
+```
+## Docker
 По умолчанию `nginx` стартует на порту `1338`. Если данный порт у вас занят, то необходимо внести изменения в `docker-compose.yaml`. Внесите изменения в секцию `ports`. 
 
 ```
@@ -115,6 +140,8 @@ service.nginx:
     networks:
       - internal-net
 ```
+# Первый запуск
+
 Первый запуск - собрать и запустить
 ```
 docker compose up --build
