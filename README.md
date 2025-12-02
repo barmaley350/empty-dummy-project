@@ -33,8 +33,6 @@ psycopg2-binary = "*"
 sphinx = "*"
 sphinx-rtd-theme = "*"
 sphinxcontrib-django = "*"
-pytest = "*"
-pytest-django = "*"
 
 [dev-packages]
 django-debug-toolbar = "*"
@@ -42,6 +40,9 @@ ruff = "*"
 django-extensions = "*"
 factory-boy = "*"
 faker = "*"
+pytest = "*"
+pytest-django = "*"
+pytest-sugar = "*"
 ```
 `cd services/backend && pipenv graph` для получения дополнительной информации
 
