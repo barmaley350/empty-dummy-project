@@ -200,14 +200,14 @@ create_docker() {
 }
 
 create_env_frontend() {
-    print_info "Настрока параметров окружения для frontend"
+    print_info "Настройка параметров окружения для frontend"
 
     cd $FRONTEND_DIR
     cp .env.example .env
 }
 
 create_env_backend() {
-    print_info "Настрока параметров окружения для backend"
+    print_info "Настройка параметров окружения для backend"
 
     cd $BACKEND_DIR
 
@@ -229,7 +229,7 @@ create_env_backend() {
 }
 
 create_env_docker() {
-    print_info "Настрока параметров окружения для docker"
+    print_info "Настройка параметров окружения для docker"
 
     cd $BASE_DIR
 
@@ -254,6 +254,16 @@ create_env_docker() {
     sed -i "s|^STATIC_VOLUME_NAME=.*|STATIC_VOLUME_NAME=\"$STATIC_VOLUME_NAME\"|" .env
 }
 
+setup_project_env() {
+    print_info "Настройка параметров окружения для проекта"
+
+    cd $BASE_DIR
+
+    sed -i "s|^PROJECT_BASE_DIR=.*|PROJECT_BASE_DIR=\"$BASE_DIR\"|" .env
+    sed -i "s|^PROJECT_NAME=.*|PROJECT_NAME=\"$PROJECT_NAME\"|" .env
+
+}
+
 next_steps() {
     echo -e ""
     echo -e "_________________________________________________________________________"
@@ -274,8 +284,13 @@ next_steps() {
     echo -e ">>> ${BLUE}ProjectFactory.create_batch(100)${NC}"
     echo -e ">>> ${BLUE}Project.objects.count()${NC}"
     echo -e ">>> ${BLUE}100${NC}"
-    echo -e ">>> ${BLUE}Ctrl+C${NC}"
+    echo -e ">>> ${BLUE}Ctrl+D${NC}"
     # echo -e "Подробная инструкция тут --- "
+    echo -e "_________________________________________________________________________"
+    echo -e ""
+    print_info "Прочитайте README.md и services/backend/README.md"  
+    echo -e "_________________________________________________________________________"  
+    echo -e ""
     echo -e "_________________________________________________________________________"
     echo -e ""
     print_success "Удачи! Всегда открыт PR ;)"  
@@ -291,6 +306,7 @@ main() {
     confirm_creation_frontend
     create_frontend
     confirm_creation_env
+    setup_project_env
     create_env_frontend
     create_env_backend
     create_env_docker
