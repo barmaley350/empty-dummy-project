@@ -11,11 +11,11 @@ const urls_left = {
         label: "Проекты",
         icon: "i-lucide-book-open",
     },
-    about: {
-        url: "/about",
-        label: "Информация",
-        icon: "lucide:info",
-    },
+    // about: {
+    //     url: "/about",
+    //     label: "Информация",
+    //     icon: "lucide:info",
+    // },
 }
 const urls_right = {
     login: {
@@ -42,6 +42,22 @@ function toggleDarkMode() {
         <div class="flex space-x-5 justify-start">
             <div class="flex items-center space-x-1 font-normal text-xl" v-for="url in urls_left">
                 <NuxtLink class="navbar-brand" :to="url['url']">{{ url['label'] }}</NuxtLink>
+            </div>
+            <div class="flex items-center space-x-1 font-normal text-xl">
+                <a href="http://localhost:1338/admin/" target="_blank">Django Admin</a>
+                <Icon name="i-lucide:arrow-up-right" />
+            </div>
+            <div class="flex items-center space-x-1 font-normal text-xl">
+                <a href="http://localhost:1338/docs/" target="_blank">Sphinx docs</a>
+                <Icon name="i-lucide:arrow-up-right" />
+            </div>
+            <div class="flex items-center space-x-1 font-normal text-xl">
+                <a href="http://localhost:8099/" target="_blank">Adminer</a>
+                <Icon name="i-lucide:arrow-up-right" />
+            </div>
+            <div class="flex items-center space-x-1 font-normal text-xl">
+                <a href="http://localhost:1338/api/" target="_blank">API</a>
+                <Icon name="i-lucide:arrow-up-right" />
             </div>
         </div>
         <div class="flex items-center space-x-3 font-normal">
