@@ -101,7 +101,7 @@ confirm_creation_frontend() {
 
 confirm_creation_docker() {
     echo ""
-    print_info "Шаг 5 - Сейчас мы выполним настройку \u00ABdocker\u00BB"
+    print_info "Шаг 5 - Все готово! Пробуем запустить \u00ABdocker\u00BB"
     echo "Для этого мы выполним следующие действия:"
     echo -e "\u2014 Перейдем в каталог ${BLUE}${BASE_DIR}${NC}"
     echo -e "\u2014 Выполним команду ${BLUE}docker compose up --build${NC}"
@@ -115,7 +115,8 @@ confirm_creation_docker() {
 
 confirm_creation_env() {
     echo ""
-    print_info "Шаг 4 - Сейчас мы выполним настройку \u00ABbackend/.env\u00BB и \u00ABfrontend/.env\u00BB"
+    print_info "Шаг 4 - Сейчас мы выполним настройку переменных окружения для"
+    print_info "\u00ABbackend (services/backend/.env)\u00BB, \u00ABfrontend (services/frontend/.env)\u00BB и \u00ABdocker (.env)\u00BB"
     echo "Для (frontend) мы выполним следующие действия:"
     echo -e "\u2014 Перейдем в каталог ${BLUE}${FRONTEND_DIR}${NC}"
     echo -e "\u2014 Выполним команду ${BLUE}cp .env.example .env${NC}"
@@ -230,25 +231,25 @@ create_env_docker() {
     read -rp $' \u00BB Укажите ADMINER_PORT (по умолчанию: '"$ADMINER_PORT_DEFAULT"'): ' adminer_port_value
     ADMINER_PORT="${adminer_port_value:-$ADMINER_PORT_DEFAULT}"
 
-    sed -i "s|^NGINX_PORT=.*|NGINX_PORT=\"$NGINX_PORT\"|" .env
-    sed -i "s|^ADMINER_PORT=.*|ADMINER_PORT=\"$ADMINER_PORT\"|" .env
+    sed -i "s|^NGINX_PORT=.*|NGINX_PORT=$NGINX_PORT|" .env
+    sed -i "s|^ADMINER_PORT=.*|ADMINER_PORT=$ADMINER_PORT|" .env
     sed -i "s|^DB_VOLUME_NAME=.*|DB_VOLUME_NAME=\"$DB_VOLUME_NAME\"|" .env
     sed -i "s|^STATIC_VOLUME_NAME=.*|STATIC_VOLUME_NAME=\"$STATIC_VOLUME_NAME\"|" .env
 }
 
 main() {
-    print_header
-    check_requirements
-    confirm_creation_backend
-    create_backend
-    confirm_creation_frontend
-    create_frontend
-    confirm_creation_env
-    create_env_frontend
-    create_env_backend
-    create_env_docker
+    # print_header
+    # check_requirements
+    # confirm_creation_backend
+    # create_backend
+    # confirm_creation_frontend
+    # create_frontend
+    # confirm_creation_env
+    # create_env_frontend
+    # create_env_backend
+    # create_env_docker
     confirm_creation_docker
-    create_docker
+    # create_docker
 }
 
 main "$@"
