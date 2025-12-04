@@ -141,7 +141,6 @@ confirm_creation_env() {
 }
 
 create_backend() {
-
     cd $BACKEND_DIR
 
     if pipenv sync; then
@@ -186,12 +185,14 @@ create_docker() {
 }
 
 create_env_frontend() {
+    print_info "Настрока параметров окружения для frontend"
 
     cd $FRONTEND_DIR
     cp .env.example .env
 }
 
 create_env_backend() {
+    print_info "Настрока параметров окружения для backend"
 
     cd $BACKEND_DIR
 
@@ -213,6 +214,7 @@ create_env_backend() {
 }
 
 create_env_docker() {
+    print_info "Настрока параметров окружения для docker"
 
     cd $BASE_DIR
 
