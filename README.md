@@ -69,7 +69,10 @@ pytest = "*"
 pytest-django = "*"
 coverage = "*"
 ```
-`cd services/backend && pipenv graph` для получения дополнительной информации
+Для получения дополнительной информации
+```
+cd services/backend && pipenv graph
+```
 
 ### Frontend Nuxtjs
 ```
@@ -87,17 +90,21 @@ coverage = "*"
 ├── vue-router@4.6.3
 └── vue@3.5.25
 ```
-`cd services/frontend && npm list` для получения дополнительной 
+Для получения дополнительной информации
+```
+cd services/frontend && npm list
+``` 
 
 # Что нужно для локальной работы
 
-1. Docker Decktop (Управление контейнерами)
-2. vscode (или свой вариант)
-3. Терминал для удобной работы (например, Terminator)
-4. python3 (Backend)
-5. pipenv (Backend)
-6. nodejs (Fontend)
-7. npm (Fontend)
+| Что  | Для чего | Примечание |
+| ------------- | ------------- | - |
+| Docker Decktop  | Управление контейнерами  | Если вам не нужен UI то можете использовать `docker cli`|
+| Python3  | Для backend  | Мин. версия на которой тестировался backend - `3.12`  |
+| pipenv  | Для backend  | Для быстрого запуска используйте `pipenv`. `uv` на подходе.   |
+| Nodejs  | Для frontend  |  |
+| npm  | Для frontend  |  |
+
 
 # Установка
 ```
