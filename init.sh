@@ -145,13 +145,28 @@ create_frontend() {
 
     cd $FRONTEND_DIR
     
-    if pipenv sync; then
+    if npm install; then
         echo "---------------------------------------"
-        print_success "pipenv sync успешно выполнен"
+        print_success "npm install успешно выполнен"
         echo "---------------------------------------"
         return 0
     else
-        print_error "Ошибка при запуске pipenv sync."
+        print_error "Ошибка при запуске npm install."
+        return 1
+    fi
+}
+
+create_docker() {
+
+    cd $BASE_DIR
+    
+    if docker compose up --build; then
+        echo "---------------------------------------"
+        print_success "docker compose up --build успешно выполнен"
+        echo "---------------------------------------"
+        return 0
+    else
+        print_error "Ошибка при запуске docker compose up --build."
         return 1
     fi
 }
@@ -182,12 +197,13 @@ main() {
     print_header
     check_requirements
     confirm_creation_backend
-    # create_backend
+    create_backend
     confirm_creation_frontend
-    # create_frontend
+    create_frontend
     confirm_creation_env
-    # create_env
+    create_env
     confirm_creation_docker
+    create_docker
 }
 
 main "$@"
