@@ -13,9 +13,10 @@ FRONTEND_DIR="${BASE_DIR}/services/frontend"
 PROJECT_NAME=$(basename "$PWD")
 
 print_header() {
-    echo -e "-------------------------------------------------------------------------"
-    echo -e "     Настройка проекта ${YELLOW}\u00AB${PROJECT_NAME}\u00BB${NC}"
-    echo -e "-------------------------------------------------------------------------"
+    echo -e "_________________________________________________________________________"
+    echo -e ""
+    echo -e "Настройка проекта ${YELLOW}\u00AB${PROJECT_NAME}\u00BB${NC}"
+    echo -e "_________________________________________________________________________"
     echo -e "${YELLOW}Шаг 1${NC} - проверка установленных зависимостей docker, nodejs, npm, pipenv"
     echo -e "   Без вашего ведома ничего не устанавливается."
     echo -e "   Проверяется только наличие необходимых программ."             
@@ -25,7 +26,7 @@ print_header() {
     echo -e "${YELLOW}Шаг 5${NC} - настройка переменных окружения для docker (.env)"
     echo -e "${YELLOW}Шаг 6${NC} - настройка docker (docker compose up --build)"
     echo -e "   Данный шаг можно не выполнять и запустить в ручном режиме."
-    echo -e "-------------------------------------------------------------------------"
+    echo -e "_________________________________________________________________________"
 }
 
 print_success() {
@@ -74,7 +75,10 @@ check_requirements() {
         exit 1
     fi
     print_success "pipenv установлен"
+
+    print_success "-------------------------------------------------------------------------"
     print_success "Все зависимости установлены"
+    print_success "-------------------------------------------------------------------------"
 }
 
 confirm_creation_backend() {
@@ -248,12 +252,12 @@ create_env_docker() {
 next_steps() {
     echo ""
     print_success "-------------------------------------------------------------------------"
-    print_success "     Настройка проекта ${YELLOW}\u00AB${PROJECT_NAME}\u00BB${NC}" завершена!
+    print_success "Настройка проекта ${YELLOW}\u00AB${PROJECT_NAME}\u00BB${NC}" завершена!
     print_success "-------------------------------------------------------------------------"
     echo -e "В коневом каталоге проекта выполните комманду ${BLUE}docker compose up --build${NC}"
     echo -e "Убедитесь что все отработало и сайт доступен по адресу ${BLUE}http://localhost:${NGINX_PORT}${NC}"
     echo -e ""
-    echo -e "Следующие шаги"
+    echo -e "Следующие шаги:"
     echo -e "${YELLOW}Шаг 1${NC} - создать django admin " 
     echo -e "cd services/backend && docker exec -it ${PROJECT_NAME}-service.backend-1 pipenv run python3 manage.py createsuperuser"
     echo -e "Подробная инструкция тут --- "
