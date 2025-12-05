@@ -1,8 +1,8 @@
 volumes:
   db-data:
-    name: ${DB_VOLUME_NAME}
+    name: ${DB_VOLUME_NAME:-db-data}
   static-files:
-    name: ${STATIC_VOLUME_NAME}
+    name: ${STATIC_VOLUME_NAME:-static-files}
 
 networks:
   internal-net:
