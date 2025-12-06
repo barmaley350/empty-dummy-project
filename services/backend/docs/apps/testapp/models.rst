@@ -7,11 +7,14 @@ Models
    :align: center
    
 
-.. automodule:: apps.testapp.models
+.. automodule:: apps.testapp.models.project
    :members:
    :undoc-members:
    :show-inheritance:
 
-
+.. automodule:: apps.testapp.models.comment
+   :members:
+   :undoc-members:
+   :show-inheritance:
 
 
