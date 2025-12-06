@@ -1,7 +1,7 @@
 Models
 ======
 
-.. figure:: /_static/my_project_visualized.png
+.. figure:: /_static/testapp.png
    :alt: Схема архитектуры системы
    :width: 100%
    :align: center
