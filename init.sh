@@ -361,9 +361,8 @@ next_steps() {
     echo -e ""
 
 
-    echo -e "$(print_text_info 'Наполнить DB demo данными')"
-    print_text_info2 "docker exec -it ${PROJECT_NAME}-service.backend-1 pipenv run python3 manage.py shell_plus"
-    print_text_info2 '>>> ProjectFactory.create_batch(100)'
+    echo -e "$(print_text_info 'Наполнить базу данных тестовыми данными')"
+    print_text_info2 "docker exec -it ${PROJECT_NAME}-service.backend-1 pipenv run python3 manage.py filling_models"
 
     echo -e ""
     print_text_info "Для получения дополнительной информации ознакомитесь с README.md"  
