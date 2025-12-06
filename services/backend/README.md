@@ -151,9 +151,9 @@ alias my-project-docker-up-build='cd <project_name_path> && docker compose up --
 alias my-project-docker-shell='docker exec -it <project_name>-service.backend-1 /bin/bash'
 alias my-project-docker-shell-plus='docker exec -it <project_name>-service.backend-1 pipenv run python3 manage.py shell_plus'
 alias my-project-docker-pytest='docker exec -it <project_name>-service.backend-1 pipenv run pytest'
-alias my-project-backend-run-all='/bin/sh <project_name_path>/files/scripts/run_all.sh'
+alias my-project-backend-run-all='/bin/bash <project_name_path>/files/scripts/run_all.sh'
 ```
 
 Вы также можете настроить терминал как вам удобно. Например, ubuntu terminal 
 
-![img_1](../../files/img/terminal.png)
+![img_1](../../files/img/terminal/terminal.png)
