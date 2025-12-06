@@ -22,6 +22,8 @@ faker = "*"
 pytest = "*"
 pytest-django = "*"
 coverage = "*"
+pyparsing = "*"
+pydot = "*"
 
 [requires]
 python_version = "3.12"
