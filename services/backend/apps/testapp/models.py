@@ -13,7 +13,7 @@ class Project(models.Model):
         blank=False,
         verbose_name="Заголовок",
     )
-    description = models.TextField()
+    description = models.TextField(verbose_name="Описание проекта")
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
 
     class Meta:
