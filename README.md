@@ -34,13 +34,15 @@
 
 
 # Доступность ресурсов  
-`frontend/nuxtjs` - `http://localhost:1338/`
+Если не менялись порты по умолчанию
 
-`backend/django` - `http://localhost:1338/admin/`
+`frontend/nuxtjs` - [http://localhost:1338/](http://localhost:1338/)
 
-`backend/sphinx` - `http://localhost:1338/docs/`
+`backend/django` - [http://localhost:1338/admin/](http://localhost:1338/)
 
-`db/adminer` - `http://localhost:8099/`
+`backend/sphinx` - [http://localhost:1338/docs/](http://localhost:1338/docs/)
+
+`db/adminer` - [http://localhost:8099/](http://localhost:8099/)
 
 # Ключевые особенности
 Все компоненты, за исключением `nginx` и `adminer`, доступны только внутри docker.
@@ -225,7 +227,16 @@ chmod +x ./run.sh
 ![img_1](files/img/runsh/run_script.png)
 
 # Если все прошло успешно
-Если установка прошла нормально, то на frontend будет небольшая заготовка.
+Если не менялись порты по умолчанию
+
+`frontend/nuxtjs` - [http://localhost:1338/](http://localhost:1338/)
+
+`backend/django` - [http://localhost:1338/admin/](http://localhost:1338/)
+
+`backend/sphinx` - [http://localhost:1338/docs/](http://localhost:1338/docs/)
+
+`db/adminer` - [http://localhost:8099/](http://localhost:8099/)
+
 
 |   |  | |
 | ------------- | ------------- |  ------------- |
