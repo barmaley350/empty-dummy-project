@@ -3,6 +3,7 @@
 
 `<project_name>` - название корневой папки вашего проекта
 
+- [Скрипт run.sh](#скрипт-run-sh)
 - [Как посмотреть установленные модули](#как-посмотреть-установленные-модули)
 - [Как создать django admin superuser](#как-создать-django-admin-superuser)
 - [Как создать новое приложение django](#как-создать-новое-приложение-django)
@@ -13,22 +14,40 @@
 - [Как работать с Ruff](#как-работать-с-ruff)
 - [Настройка рабочего окружения для комфортной работы](#настройка-рабочего-окружения-для-комфортной-работы)
 
+# Скрипт run sh
+Практически все повседневные операции вы можете выполнять, используя скрипт `run.sh`. Это удобно и избавляет от необходимости запоминания и ввода длинных команд. 
+```
+chmod + run.sh
+```
+```
+./run.sh
+```
+![img_1](../../files/img/runsh/run_script.png)
 
+Вы также можете создать `command alias` в используемом вами `shell` для запуска скрипта из любого места. Например, для `zsh` в `~/.zchrc` можно добавить `alias`
+```
+alias barmaley='/bin/bash /home/home/my/RepoCode/empty_dummy_project/run.sh'
+```
+Где `barmaley` имя вашей команды. Вместо `barmaley` вы можете выбрать любое имя которое не является существующей командой в вашей системе. Это очень удобно и экономит массу времени.
 
-## Как посмотреть установленные модули
+# Как посмотреть установленные модули
 Посмотреть все используемые модули можно в файле `Pipfile` или выполнив команду 
 ```
 pipenv graph
 ```
 
-## Как создать django admin superuser
+# Как создать django admin superuser
 Для создания superuser django admin выполните комманду. `<project_name>` замените на название корневой папки вашего проекта
 
 ```
 docker exec -it <project_name>-service.backend-1 pipenv run python3 manage.py createsuperuser
 ```
+Либо с использованием `run.sh`
+```
+./run.sh ca
+```
 
-## Как создать новое приложение django
+# Как создать новое приложение django
 Приложения будут храниться в отдельной папке `apps` для более удобной организации структуры проекта. Перед создание приложения необходимо предварительно создать папку приложения. 
 
 `mkdir apps/<app_name>` а затем выполнить команду
@@ -36,15 +55,27 @@ docker exec -it <project_name>-service.backend-1 pipenv run python3 manage.py cr
 ```
 pipenv run python3 manage.py startapp <app_name> apps/<app_name>
 ```
+Либо с использованием `run.sh`
+```
+./run.sh ca app_name
+```
 
 После установки приложения необходимо изменить `name` в `apps/<app_name>/apps.py` на `apps.<app_name>`
 
 Также не забываем добавить приложение в `settings/settings.py` в раздел `INSTALLED_APPS` в формате `apps.<apps_name>`
 
 # Как наполнить базу данных тестовыми данными
-В проекте по умолчанию создано приложение `apps/testapp` с одной моделью `Projects`. 
+В проекте по умолчанию создано приложение `apps/testapp` со следующей структурой.
+
+![img_1](../../files/img/graph_models/testapp.png)
 
 Самый простой способ наполнить базу тестовыми данными это воспользоваться командой
+```
+./run.sh manage filling_models
+```
+`filling_models` это команда уровня приложения `testapp` которую можно запускать обычным способом используя `manage.py`
+
+Для сравнения, вот как эта же команда запускается напрямую через Docker.
 ```
 docker exec -it <project_name>-service.backend-1 pipenv run python3 manage.py filling_models
 ```
@@ -57,7 +88,11 @@ SHELL_PLUS_IMPORTS = [
     "from apps.testapp.factories import *",  # Imports all factories from factories.py
 ]
 ```
-Работа с shell_plus происходит в рамках контейнера.
+Просто запустите 
+```
+./run.sh manage shell_plus
+```
+Для сравнения, вот как эта же команда запускается напрямую через Docker.
 ```
 docker exec -it <project_name>-service.backend-1 pipenv run python3 manage.py shell_plus
 ```
@@ -75,36 +110,37 @@ docker exec -it <project_name>-service.backend-1 pipenv run python3 manage.py sh
 >>> 
 ```
 
-## Как использовать shell plus
+# Как использовать shell plus
+```
+./run.sh manage shell_plus
+```
+Для сравнения, вот как эта же команда запускается напрямую через Docker.
 ```
 docker exec -it <project_name>-service.backend-1 pipenv run python3 manage.py shell_plus
 ```
 
-## Генерация документации Sphinx
+# Генерация документации Sphinx
 Документация доступна по адресу [http://localhost:1338/docs/](http://localhost:1338/docs/)
 
 
-Рабочая папка в которой хранится документация - `service/backend/docs`. Для того что бы запретить произвольный доступ к документации был создан модуль `sphinx_docs` основная задача которого ограничивать доступ к документации неавторизованным пользателям. 
+Рабочая папка, в которой хранится документация, — `service/backend/docs`. Для того чтобы запретить произвольный доступ к документации, был создан модуль `sphinx_docs`, основная задача которого — ограничивать доступ к документации неавторизованным пользователям.
 
-Для генерации документации необходимо выполнить следующие комманды. 
+Для генерации документации необходимо выполнить 
 ```
-cd docs
-```
-```
-pipenv run make html
+./run.sh sd
 ```
 Более подробная информация о Sphinx доступна на 
 [официальном сайте](https://www.sphinx-doc.org/en/master/)
 
 
-## Как запускать тесты PyTest
-Запуск тестов происходит в контейнере
+# Как запускать тесты PyTest
+В данном проекте для работы с тестами используется модуль python `pytest`
 ```
-docker exec -it <project_name>-service.backend-1 pipenv run pytest
+./run.sh p [params]
 ```
-
-## Как работать с Ruff
-### `pre-commit`и собственный велосипед
+Где `[params]` параметры которые может принимать модуль python `pytest` 
+# Как работать с Ruff
+## `pre-commit`и собственный велосипед
 Модуль `pre-commit` работает относительно текущей папки запуска git. В данном шаблоне приложения структура папок организованна по другому. В целом все работает также просто на самописном `sh` скрипте без использования модуля `pre-commit`. Также немного изменена логика - git commit не пройдет если есть любые изменения `ruff format`. Поэтому счала `ruff fromat` а потому уже `git commit` 
 
 Для того чтобы данный функционал разаботал необходимо выполнить комманду 
@@ -115,44 +151,16 @@ cp files/git/pre-commit .git/hooks
 
 Запуск `ruff` в ручном режиме
 ```
-pipenv run ruff check
-``` 
+./run.sh rc | ruffcheck ━ Запустить ruff check 
 ```
-pipenv run ruff format
 ```
-или для проверки без изменений
+./run.sh rf | ruffformat ━ Запустить ruff format 
 ```
-pipenv run ruff format --check --diff
 ```
+./run.sh ra | ruff ━ Запустить ruff check и ruff format
+```
+# Настройка рабочего окружения для комфортной работы
 
-## Настройка рабочего окружения для комфортной работы
-Для быстрого доступа в контейнер и/или запуска громоздких команд вы можете использовать `commnad alias` в вашем `shell`
-
-Например, для `zsh` можно добавить `command alias` в конфиг `.zshrc`
-Имена контенеров имеют префикс названия вашей корневой папки проекта. Замените `<project_name>` на название вашей корневой папки проекта. 
-
-Например, если вана корневая папка проекта называется `test_project` то в `zshrc` нужно добавить следующие строки: 
-```
-alias <command_prefix>-<command_suffix>='<command_name>'
-alias <command_prefix>-<command_name>='cd /home/home/my/RepoCode/empty_dummy_project/ && docker compose up --build'
-alias <command_prefix>-docker-shell='docker exec -it empty_dummy_project-service.backend-1 /bin/bash'
-alias <command_prefix>-docker-shell-plus='docker exec -it empty_dummy_project-service.backend-1 pipenv run python3 manage.py shell_plus'
-alias <command_prefix>-docker-pytest='docker exec -it empty_dummy_project-service.backend-1 pipenv run pytest'
-alias <command_prefix>-backend-run-all='/bin/sh /home/home/my/RepoCode/empty_dummy_project/files/scripts/run_all.sh'
-```
-где `<command_prefix>` и `command_suffix` любые название которые вы выберите - главное что бы итоговый вариант команды не конфликтовал 
-с уже существующими командами. `<project_name_path>` - абсолютный путь к коневой папке вашего проекта. `<project_name>` - название коневой папки вашего проекта. `<command_name>` - команда которую вы хотите запустить 
-
-Например
-
-```
-alias my-project-docker-up='cd <project_name_path> && docker compose up'
-alias my-project-docker-up-build='cd <project_name_path> && docker compose up --build'
-alias my-project-docker-shell='docker exec -it <project_name>-service.backend-1 /bin/bash'
-alias my-project-docker-shell-plus='docker exec -it <project_name>-service.backend-1 pipenv run python3 manage.py shell_plus'
-alias my-project-docker-pytest='docker exec -it <project_name>-service.backend-1 pipenv run pytest'
-alias my-project-backend-run-all='/bin/bash <project_name_path>/files/scripts/run_all.sh'
-```
 
 Вы также можете настроить терминал как вам удобно. Например, ubuntu terminal 
 

@@ -12,7 +12,7 @@
   - [Backend (обязательно)](#настройки-backend)
   - [Frontend (обязательно)](#настройки-frontend)
   - [Docker (опционально)](#настройки-docker)
-- [Первый запуск](#запуск)
+- [Первый запуск](#первый-запуск)
 - [Настройка git pre-commit](#настройка-git-pre-commit)
 - [Известные проблемы](#известные-проблемы)
 - [Если все прошло успешно](#если-все-прошло-успешно)
@@ -33,7 +33,7 @@
 | Backend  | [Readme.md](./services/backend/README.md)  |
 
 
-## Доступность ресурсов  
+# Доступность ресурсов  
 `frontend/nuxtjs` - `http://localhost:1338/`
 
 `backend/django` - `http://localhost:1338/admin/`
@@ -42,12 +42,12 @@
 
 `db/adminer` - `http://localhost:8099/`
 
-## Ключевые особенности
+# Ключевые особенности
 Все компоненты, за исключением `nginx` и `adminer`, доступны только внутри docker.
 
-## Установленные и настроенные модули
+# Установленные и настроенные модули
 
-### Backend Django
+## Backend Django
 ```
 [packages]
 django = "*"
@@ -74,7 +74,7 @@ coverage = "*"
 cd services/backend && pipenv graph
 ```
 
-### Frontend Nuxtjs
+## Frontend Nuxtjs
 ```
 ├── @emnapi/core@1.7.1 extraneous
 ├── @emnapi/runtime@1.7.1 extraneous
