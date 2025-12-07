@@ -1,6 +1,9 @@
 #!/bin/bash
 # После обновления скрипата нужно его скопировать в git/hooks
 # cp files/git/pre-commit .git/hooks
+LANG=ru_RU.UTF-8
+LC_ALL=ru_RU.UTF-8
+LANGUAGE=ru_RU.UTF-8
 
 PROJECT_BASE_DIR=$(cd -P "$(dirname -- "$0")" && cd ../../ && pwd -P)
 
