@@ -8,7 +8,7 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 PATH_TO_BACKEND="/services/backend"
-PATH_TO_BACKEND_DOCS="/services/backend/docs"
+PATH_TO_BACKEND_DOCS="/services/backend/apps/sphinx_docs/docs"
 
 # Абсолютный путь к каталогу скрипта
 SCRIPT_DIR=$(cd -P "$(dirname -- "$0")" && pwd -P)
@@ -134,11 +134,15 @@ command_shell() {
 command_gendoc() {
     generate_graph_models
     generate_sphinx_docs
+    command_collectstatic
 } 
 generate_sphinx_docs() {
-    cd $SCRIPT_DIR$PATH_TO_BACKEND_DOCS
-    pipenv run make clean
-    pipenv run make html
+    # cd $SCRIPT_DIR$PATH_TO_BACKEND_DOCS
+    cd $SCRIPT_DIR$PATH_TO_BACKEND
+    rm -rf apps/sphinx_docs/docs/_build/html
+    # pipenv run make SOURCEDIR=apps/sphinx_docs/docs BUILDDIR=apps/sphinx_docs/docs/_build/html clean
+    # pipenv run make SOURCEDIR=apps/sphinx_docs/docs BUILDDIR=apps/sphinx_docs/docs/_build/html html
+    pipenv run sphinx-build -b html apps/sphinx_docs/docs apps/sphinx_docs/docs/_build/html
 
     if [ $? -ne 0 ]; then
         print_text_block error "Ошибка при создании документации Sphinx"  
@@ -153,25 +157,35 @@ generate_sphinx_docs() {
 # Generate sphinx docs for backend/django
 generate_graph_models() {
     cd $SCRIPT_DIR$PATH_TO_BACKEND
-    print_text_white "Создаем graph_models testapp -o docs/_static/testapp.png\n"
-    pipenv run python3 manage.py graph_models testapp -o docs/_static/testapp.png
+    print_text_white "Создаем graph_models testapp -o apps/sphinx_docs/docs/_static/testapp.png\n"
+    pipenv run python3 manage.py graph_models testapp -o apps/sphinx_docs/docs/_static/testapp.png
 
-    print_text_white "Создаем graph_models sphinx_docs -o docs/_static/sphinx_docs.png\n"
-    pipenv run python3 manage.py graph_models sphinx_docs -o docs/_static/sphinx_docs.png
+    print_text_white "Создаем graph_models sphinx_docs -o apps/sphinx_docs/docs/_static/sphinx_docs.png\n"
+    pipenv run python3 manage.py graph_models sphinx_docs -o apps/sphinx_docs/docs/_static/sphinx_docs.png
 
-    print_text_white "Создаем graph_models -o docs/_static/all.png\n"
-    pipenv run python3 manage.py graph_models -o docs/_static/all.png
+    print_text_white "Создаем graph_models -o apps/sphinx_docs/docs/_static/all.png\n"
+    pipenv run python3 manage.py graph_models -o apps/sphinx_docs/docs/_static/all.png
 
     if [ $? -ne 0 ]; then
         print_text_block error "Генерация graph_models структуры DB завершилась с ошибкой"
         exit $?
     fi
-    cp docs/_static/* $SCRIPT_DIR/files/img/graph_models
+    cp apps/sphinx_docs/docs/_static/* $SCRIPT_DIR/files/img/graph_models
 
     print_text_block success "Генерация graph_models структуры DB прошла успешно"
     return 0
 }
+# collectstatic
+command_collectstatic() {
+    docker exec -it ${FOLDER_NAME}-service.backend-1 pipenv run python3 manage.py collectstatic --noinput
 
+    if [ $? -ne 0 ]; then
+        print_text_block error "Есть ошибки при выполнении collectstatic"
+        exit $?
+    fi
+    print_text_block success "Успешное завершение collectstatic"
+    return 0
+}
 command_ruff_check() {
     cd $SCRIPT_DIR$PATH_TO_BACKEND
 
