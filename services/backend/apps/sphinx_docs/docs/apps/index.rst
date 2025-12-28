@@ -12,4 +12,5 @@ Apps
 
    testapp/index
    sphinx_docs/index
+   jupyter/index
 
