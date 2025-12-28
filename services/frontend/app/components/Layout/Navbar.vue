@@ -59,6 +59,10 @@ function toggleDarkMode() {
                 <a href="http://localhost:1338/api/" target="_blank">API</a>
                 <Icon name="i-lucide:arrow-up-right" />
             </div>
+            <div class="flex items-center space-x-1 font-normal text-xl">
+                <a href="http://localhost:1338/jupyter/" target="_blank">Jupyter</a>
+                <Icon name="i-lucide:arrow-up-right" />
+            </div>
         </div>
         <div class="flex items-center space-x-3 font-normal">
             <div class="flex gap-x-2 px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded-md items-center">
