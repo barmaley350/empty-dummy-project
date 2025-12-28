@@ -14,7 +14,6 @@
   - [Docker (опционально)](#настройки-docker)
 - [Первый запуск](#первый-запуск)
 - [Настройка git pre-commit](#настройка-git-pre-commit)
-- [Известные проблемы](#известные-проблемы)
 - [Если все прошло успешно](#если-все-прошло-успешно)
 - [License](#license)
 
@@ -38,11 +37,13 @@
 
 `frontend/nuxtjs` - [http://localhost:1338/](http://localhost:1338/)
 
-`backend/django` - [http://localhost:1338/admin/](http://localhost:1338/)
+`backend/django` `(требуется аутентификация)` - [http://localhost:1338/admin/](http://localhost:1338/)
 
-`backend/sphinx` - [http://localhost:1338/docs/](http://localhost:1338/docs/)
+`backend/sphinx` `(требуется аутентификация)` - [http://localhost:1338/docs/](http://localhost:1338/docs/)
 
-`db/adminer` - [http://localhost:8099/](http://localhost:8099/)
+`db/adminer` `(требуется аутентификация)` - [http://localhost:8099/](http://localhost:8099/)
+
+`jupyter` `(требуется аутентификация)` - [http://localhost:1338/jupyter/](http://localhost:8099/)
 
 # Ключевые особенности
 Все компоненты, за исключением `nginx` и `adminer`, доступны только внутри docker.
@@ -240,9 +241,10 @@ chmod +x ./run.sh
 
 |   |  | |
 | ------------- | ------------- |  ------------- |
-|![img_1](files/img/website/s2.png)  | ![img_1](files/img/website/s3.png)  | ![img_1](files/img/website/s5.png)  |
-|![img_1](files/img/website/s1.png)  | ![img_1](files/img/website/s4.png)  | ![img_1](files/img/website/s6.png)  |
+|![img_1](files/img/website/s1.png)  | ![img_1](files/img/website/s2.png)  | ![img_1](files/img/website/s3.png)  |
+|![img_1](files/img/website/s4.png)  | ![img_1](files/img/website/s5.png)  | ![img_1](files/img/website/s6.png)  |
 |![img_1](files/img/sphinx/sphinx.png)  | ![img_1](files/img/admin/admin.png)  | ![img_1](files/img/restapi/django_rest.png)  |
+|![img_1](files/img/jupyter/1.png)  |   |  |
 
 # License
 [MIT](LICENSE)
