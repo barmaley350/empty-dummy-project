@@ -101,3 +101,22 @@ services:
     networks:
       - internal-net
 
+  # ----------------------------------------------------------------------------
+  # jupyter
+  # ----------------------------------------------------------------------------
+  service.jupyter:
+    build:
+      context: .
+      dockerfile: ./services/jupyter/Dockerfile
+    expose:
+      - 8888
+    # ports:
+    #   - 10000:8888
+    volumes:
+      - ./services/backend/apps/jupyter/jupyter_files:/home/jovyan/work
+      # - ./services/backend/docs/_build/html:/usr/share/nginx/html/docs      
+    # depends_on:
+    #   - service.frontend
+    restart: unless-stopped
+    networks:
+      - internal-net
