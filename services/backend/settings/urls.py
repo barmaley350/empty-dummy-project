@@ -27,6 +27,7 @@ admin.site.site_header = "Тестовый проект"
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("docs/", include("apps.sphinx_docs.urls")),
+    path("jupyter/", include("apps.jupyter.urls")),
     path("api/", include("apps.testapp.urls")),
 ]
 
