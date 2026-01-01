@@ -2,3 +2,4 @@
 
 from .comment import Comment  # noqa: F401
 from .project import Project  # noqa: F401
+from .tag import Tag  # noqa: F401
