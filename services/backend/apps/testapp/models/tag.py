@@ -29,5 +29,5 @@ class Tag(models.Model):
         :type kwargs: dict[Any: Any]
         """
         if not self.slug:
-            self.slug = slugify(self.title)
+            self.slug = slugify(self.name)
         super().save(*args, **kwargs)
