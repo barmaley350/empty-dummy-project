@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-col gap-3">
         <div class="flex flex-col border border-gray-300 rounded-sm dark:border-gray-600">
-            <div class="p-3 bg-gray-300 rounded-t-sm dark:bg-gray-700">
+            <div class="flex p-3 bg-gray-300 rounded-t-sm dark:bg-gray-700">
                 <slot name="title" />
             </div>
             <div class="p-3">

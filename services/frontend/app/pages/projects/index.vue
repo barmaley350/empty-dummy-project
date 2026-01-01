@@ -29,9 +29,16 @@ const countFlats = computed(() => {
                 <div class="flex flex-col gap-3" v-if="data">
                     <LayoutCard v-for="item in data.results" :key="item.id">
                         <template #title>
-                            <LayoutTitle class="text-xl">
+                            <LayoutTitle class="text-xl grow">
                                 {{ item.title }}
                             </LayoutTitle>
+                            <LayoutBadges class="text-xl ml-1 bg-gray-400 rounded-md">
+                                #{{ item.id }}
+                            </LayoutBadges>
+
+                            <LayoutBadges class="text-xl ml-1 bg-gray-400 rounded-md">
+                                {{ item.comments_count }}
+                            </LayoutBadges>
                         </template>
                         <template #description>
                             {{ item.description }}
