@@ -2,10 +2,21 @@
 
 import factory
 from django.contrib.auth.models import User
+from faker import Faker
 
-from apps.testapp.models import Comment, Project
+from apps.testapp.models import Comment, Project, Tag
 
 factory.Faker._DEFAULT_LOCALE = "ru_RU"  # noqa: SLF001
+fake_en = Faker("en_US")
+
+
+class UserFactory(factory.django.DjangoModelFactory):
+    """Docstring для UserFactory."""
+
+    class Meta:
+        """Docstring для Meta."""
+
+        model = User
 
 
 class ProjectFactory(factory.django.DjangoModelFactory):
@@ -18,7 +29,8 @@ class ProjectFactory(factory.django.DjangoModelFactory):
 
     title = factory.Faker("text", max_nb_chars=100)
     description = factory.Faker("text", max_nb_chars=500)
-    owner = factory.LazyFunction(lambda: User.objects.get(id=1))
+    owner = factory.LazyAttribute(lambda _: User.objects.first())
+    # owner = factory.SubFactory(UserFactory)  # noqa: ERA001
 
 
 class CommentFactory(factory.django.DjangoModelFactory):
@@ -32,4 +44,18 @@ class CommentFactory(factory.django.DjangoModelFactory):
     title = factory.Faker("text", max_nb_chars=100)
     description = factory.Faker("text", max_nb_chars=500)
     project = factory.SubFactory(ProjectFactory)
-    owner = factory.LazyFunction(lambda: User.objects.get(id=1))
+    # owner = factory.LazyFunction(lambda: User.objects.get(id=1))  # noqa: ERA001
+    # owner = factory.SubFactory(UserFactory)  # noqa: ERA001
+    owner = factory.LazyAttribute(lambda _: User.objects.first())
+
+
+class TagFactory(factory.django.DjangoModelFactory):
+    """Docstring для TagFactory."""
+
+    class Meta:
+        """Docstring для Meta."""
+
+        model = Tag
+
+    # name = factory.Faker("unique.word", locale="en_US")
+    name = factory.LazyAttribute(lambda _: fake_en.unique.word())
