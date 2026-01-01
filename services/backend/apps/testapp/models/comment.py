@@ -22,7 +22,7 @@ class Comment(models.Model):
         User,
         on_delete=models.CASCADE,
         verbose_name="Кто создал",
-        related_name="comments",
+        related_name="authored_comments",
     )
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Дата редактирования")
