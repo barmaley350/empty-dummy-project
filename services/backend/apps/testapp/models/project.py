@@ -20,6 +20,7 @@ class Project(models.Model):
         verbose_name="Кто создал",
         related_name="projects",
     )
+    tags = models.ManyToManyField("Tag", blank=True, related_name="projects")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Дата редактирования")
 

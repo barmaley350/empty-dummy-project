@@ -5,6 +5,7 @@ from rest_framework import serializers
 from apps.testapp.models import Project
 
 from .comment import CommentSerializer
+from .tag import TagSerializer
 from .user import UserSerializer
 
 
@@ -14,6 +15,7 @@ class ProjectSerializer(serializers.ModelSerializer):
     comments = CommentSerializer(many=True, read_only=True)
     comments_count = serializers.IntegerField(read_only=True)
     owner = UserSerializer(read_only=True)
+    tags = TagSerializer(many=True, read_only=True)
 
     class Meta:
         """Docstring for Meta."""
@@ -25,5 +27,6 @@ class ProjectSerializer(serializers.ModelSerializer):
             "description",
             "owner",
             "comments_count",
+            "tags",
             "comments",
         ]
