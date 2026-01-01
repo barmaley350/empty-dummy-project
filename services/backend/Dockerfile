@@ -15,7 +15,7 @@ ENV PYTHONUNBUFFERED=1
 # сохранения файлов виртуального окружения
 ENV WORKON_HOME=/venv
 
-RUN apt-get update && apt-get install -y --no-install-recommends bash
+RUN apt-get update && apt-get install -y --no-install-recommends bash postgresql-client
 
 # Обновление pip и установка pipenv
 RUN pip install --upgrade pip --no-cache-dir
