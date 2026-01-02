@@ -7,7 +7,7 @@ LANGUAGE=ru_RU.UTF-8
 
 PROJECT_BASE_DIR=$(cd -P "$(dirname -- "$0")" && cd ../../ && pwd -P)
 
-PATH_TO_BACKEND=$PROJECT_BASE_DIR"/services/backend"
+PATH_TO_BACKEND=$PROJECT_BASE_DIR"/services/drf"
 
 #$RUFF_CHECK_FIX="--fix"
 RUFF_CHECK_FIX=""

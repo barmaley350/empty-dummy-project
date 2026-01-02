@@ -7,8 +7,8 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-PATH_TO_BACKEND="/services/backend"
-PATH_TO_BACKEND_DOCS="/services/backend/apps/sphinx_docs/docs"
+PATH_TO_BACKEND="/services/drf"
+PATH_TO_BACKEND_DOCS="/services/drf/apps/sphinx_docs/docs"
 
 # Абсолютный путь к каталогу скрипта
 SCRIPT_DIR=$(cd -P "$(dirname -- "$0")" && pwd -P)

@@ -14,8 +14,8 @@ BASE_DIR=$(pwd)
 
 . $BASE_DIR/.env
 
-PATH_TO_BACKEND="/services/backend"
-PATH_TO_BACKEND_DOCS="/services/backend/docs"
+PATH_TO_BACKEND="/services/drf"
+PATH_TO_BACKEND_DOCS="/services/drf/docs"
 
 print_text_success() {
     echo -e "${GREEN} \u2714 $1${NC}"

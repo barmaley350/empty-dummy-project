@@ -1,5 +1,5 @@
 # Оглавление 
-Все приводимые команды выполняются в каталог `services/backend` если явно не сказано использовать другой каталог.
+Все приводимые команды выполняются в каталог `services/drf` если явно не сказано использовать другой каталог.
 
 `<project_name>` - название корневой папки вашего проекта
 
@@ -147,7 +147,7 @@ docker exec -it <project_name>-service.backend-1 pipenv run python3 manage.py sh
 ```
 cp files/git/pre-commit .git/hooks
 ```
-Настроки `ruff` находятся тут `services/backend/pyproject.toml`. По умолчанию включена проверка всего что есть. 
+Настроки `ruff` находятся тут `services/drf/pyproject.toml`. По умолчанию включена проверка всего что есть. 
 
 Запуск `ruff` в ручном режиме
 ```

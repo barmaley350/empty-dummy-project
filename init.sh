@@ -7,7 +7,7 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 BASE_DIR=$(pwd)
-BACKEND_DIR="${BASE_DIR}/services/backend"
+BACKEND_DIR="${BASE_DIR}/services/drf"
 FRONTEND_DIR="${BASE_DIR}/services/frontend"
 
 PROJECT_NAME=$(basename "$PWD")
@@ -205,7 +205,7 @@ confirm_creation_env1() {
     echo -e "\u2014 Перейдем в каталог  $(print_text_info2 ${BACKEND_DIR})"
     echo -e "\u2014 Выполним команду $(print_text_info2 'cp .env.example .env')"
     echo -e "\u2014 Настроим $(print_text_info2 'SECRET_KEY') и $(print_text_info2 'POSTGRES_PASSWORD')"
-    echo -e "Вы всегда сможете изменить эти параметры в файле $(print_text_info2 'services/backend/.env')"
+    echo -e "Вы всегда сможете изменить эти параметры в файле $(print_text_info2 'services/drf/.env')"
 
     echo ""
     echo "Для (docker) мы выполним следующие действия:"

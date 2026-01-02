@@ -28,8 +28,8 @@ FROM base AS build
 
 WORKDIR ${APP_ROOT}
 
-COPY ./services/backend/Pipfile ${APP_ROOT}
-COPY ./services/backend/Pipfile.lock ${APP_ROOT}
+COPY ./services/drf/Pipfile ${APP_ROOT}
+COPY ./services/drf/Pipfile.lock ${APP_ROOT}
 
 RUN pipenv sync --dev
 RUN pipenv --clear

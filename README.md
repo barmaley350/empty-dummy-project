@@ -30,7 +30,7 @@
 |  Сервис | Readme Url | 
 | ------------- | ------------- |
 | Frontend  | [Readme.md](./services/frontend/README.md)  |
-| Backend  | [Readme.md](./services/backend/README.md)  |
+| Backend  | [Readme.md](./services/drf/README.md)  |
 
 
 # Доступность сервисов  
@@ -74,7 +74,7 @@ coverage = "*"
 ```
 Для получения дополнительной информации
 ```
-cd services/backend && pipenv graph
+cd services/drf && pipenv graph
 ```
 
 ## Frontend Nuxtjs
@@ -138,7 +138,7 @@ chmod +x init.sh
 Для лучшего понимания, как всё работает, вы можете настроить работу в ручном режиме, настраивая каждый сервис по отдельности. Вы также можете использовать эту информацию для внесения изменений после установки и настройки с использованием `init.sh`.
 ### Настройки Backend
 ```
-cd services/backend
+cd services/drf
 ```
 ```
 pipenv sync --dev
@@ -164,7 +164,7 @@ POSTGRES_PORT=5432
 ```
 Для создания `SECRET_KEY` можете воспользоваться следующи кодом
 ```
-cd services/backend/
+cd services/drf/
 ```
 ```
 pipenv run python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
