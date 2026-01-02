@@ -21,7 +21,6 @@ services:
       - service.frontend
     volumes:
       - static-files:/usr/share/nginx/html/static
-      # - ./services/drf/docs/_build/html:/usr/share/nginx/html/docs
     restart: unless-stopped
     networks:
       - internal-net
@@ -75,10 +74,6 @@ services:
     expose:
       - 5432
     volumes:
-      # - db-data:/var/lib/postgresql/data
-      # - db-data:/var/lib/postgresql/MAJOR/docker
-      # - ./services/postgres/db:/var/lib/postgresql/MAJOR/docker
-      # - ./services/postgres/db:/var/lib/postgresql/18/docker
       - db-data:/var/lib/postgresql/18/docker
     env_file:
       - ./services/drf/.env
@@ -110,13 +105,10 @@ services:
       dockerfile: ./services/jupyter/Dockerfile
     expose:
       - 8888
-    # ports:
-    #   - 10000:8888
     volumes:
       - ./services/drf/apps/jupyter/jupyter_files:/home/jovyan/work
-      # - ./services/drf/docs/_build/html:/usr/share/nginx/html/docs      
-    # depends_on:
-    #   - service.frontend
+    depends_on:
+      - service.adminer
     restart: unless-stopped
     networks:
       - internal-net
