@@ -32,14 +32,14 @@ services:
   service.frontend:
     build:
       context: .
-      dockerfile: ./services/frontend/Dockerfile
+      dockerfile: ./services/nuxtjs/Dockerfile
     command: "npm run dev -- -o"
     expose:
       - 5173
     volumes:
-      - ./services/frontend:/app
+      - ./services/nuxtjs:/app
     env_file:
-      - ./services/frontend/.env
+      - ./services/nuxtjs/.env
     restart: unless-stopped
     networks:
       - internal-net

@@ -8,8 +8,8 @@ WORKDIR ${APP_ROOT}
 
 FROM base AS build
 
-COPY ./services/frontend/package-lock.json ${APP_ROOT}
-COPY ./services/frontend/package.json ${APP_ROOT}
+COPY ./services/nuxtjs/package-lock.json ${APP_ROOT}
+COPY ./services/nuxtjs/package.json ${APP_ROOT}
 
 RUN npm install
 

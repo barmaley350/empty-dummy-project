@@ -29,7 +29,7 @@
 
 |  Сервис | Readme Url | 
 | ------------- | ------------- |
-| Frontend  | [Readme.md](./services/frontend/README.md)  |
+| Frontend  | [Readme.md](./services/nuxtjs/README.md)  |
 | Backend  | [Readme.md](./services/drf/README.md)  |
 
 
@@ -95,7 +95,7 @@ cd services/drf && pipenv graph
 ```
 Для получения дополнительной информации
 ```
-cd services/frontend && npm list
+cd services/nuxtjs && npm list
 ``` 
 
 # Что нужно для локальной работы
@@ -174,7 +174,7 @@ pipenv run python -c "from django.core.management.utils import get_random_secret
 ### Настройки Frontend
 
 ```
-cd services/frontend
+cd services/nuxtjs
 ```
 ```
 cp .env.example .env

@@ -8,7 +8,7 @@ NC='\033[0m' # No Color
 
 BASE_DIR=$(pwd)
 BACKEND_DIR="${BASE_DIR}/services/drf"
-FRONTEND_DIR="${BASE_DIR}/services/frontend"
+FRONTEND_DIR="${BASE_DIR}/services/nuxtjs"
 
 PROJECT_NAME=$(basename "$PWD")
 
