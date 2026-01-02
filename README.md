@@ -29,8 +29,8 @@
 
 |  Сервис | Readme Url | 
 | ------------- | ------------- |
-| Frontend  | [Readme.md](./services/nuxtjs/README.md)  |
-| Backend  | [Readme.md](./services/drf/README.md)  |
+| Frontend/Nuxtjs  | [Readme.md](./services/nuxtjs/README.md)  |
+| Backend/DRF  | [Readme.md](./services/drf/README.md)  |
 
 
 # Доступность сервисов  
