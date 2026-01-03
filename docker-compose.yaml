@@ -67,6 +67,26 @@ services:
       && pipenv run gunicorn -c gunicorn.py settings.wsgi:application"
 
   # ----------------------------------------------------------------------------
+  # fastapi backend
+  # ----------------------------------------------------------------------------
+  service.fastapi:
+    build:
+      context: .
+      dockerfile: ./services/fastapi/Dockerfile
+    expose:
+      - 8000
+    volumes:
+      - ./services/fastapi:/app
+    env_file:
+      - ./services/fastapi/.env
+    depends_on:
+      - service.db_postgres
+    restart: unless-stopped
+    networks:
+      - internal-net
+    command: pipenv run uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  # ----------------------------------------------------------------------------
   # database
   # ----------------------------------------------------------------------------
   service.db_postgres:
