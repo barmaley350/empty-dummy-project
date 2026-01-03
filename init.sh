@@ -492,12 +492,12 @@ next_steps() {
 }
 
 main() {
-    # print_header
-    # step1_check_system_requirements
-    # step2_install_backend_drf
-    # step2_install_backend_fastapi
-    # step3_install_frontend
-    # step4_create_envs
+    print_header
+    step1_check_system_requirements
+    step2_install_backend_drf
+    step2_install_backend_fastapi
+    step3_install_frontend
+    step4_create_envs
     next_steps
 }
 
