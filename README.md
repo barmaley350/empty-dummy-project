@@ -4,6 +4,7 @@
   - [Доступность сервисов](#доступность-сервисов)
   - [Установленные и настроенные модули](#установленные-и-настроенные-модули)
     - [Backend/Django](#backend-django)
+    - [Backend/FastApi](#backend-fastapi)
     - [Frontend/Nuxtjs](#frontend-nuxtjs)
 - [Что нужно для локальной работы](#что-нужно-для-локальной-работы)
 - [Установка](#установка)
@@ -36,7 +37,7 @@
 # Доступность сервисов  
 
 > [!IMPORTANT]
-> Используйте данные url если не менялись порты по умолчанию. В противном случае замените порт `1338` на тот который вы указали.
+> Используйте данные url если не менялись порты по умолчанию. В противном случае замените порты `1338` и `8099` на те который вы указали.
 
 |  Сервис |auth| Url | Описание |
 | ------------- | - | ------------- | - |
@@ -76,6 +77,17 @@ coverage = "*"
 Для получения дополнительной информации
 ```
 cd services/drf/ && pipenv graph
+```
+## Backend FastApi
+```
+[packages]
+fastapi = "*"
+uvicorn = "*"
+pydantic = "*"
+```
+Для получения дополнительной информации
+```
+cd services/fastapi/ && pipenv graph
 ```
 
 ## Frontend Nuxtjs
@@ -239,15 +251,15 @@ chmod +x ./run.sh
 # Если все прошло успешно
 Если не менялись порты по умолчанию
 
-`frontend/nuxtjs` - [http://localhost:1338/](http://localhost:1338/)
-
-`backend/django` `(требуется аутентификация)` - [http://localhost:1338/admin/](http://localhost:1338/)
-
-`backend/sphinx` `(требуется аутентификация)` - [http://localhost:1338/docs/](http://localhost:1338/docs/)
-
-`db/adminer` `(требуется аутентификация)` - [http://localhost:8099/](http://localhost:8099/)
-
-`jupyter` `(требуется аутентификация)` - [http://localhost:1338/jupyter/](http://localhost:8099/)
+|  Сервис |auth| Url | Описание |
+| ------------- | - | ------------- | - |
+| frontend/nuxtjs | `нет` | [http://localhost:1338/](http://localhost:1338/)  | frontend на базе NuxtJs |
+| backend/fastapi/api  | `нет` | [http://localhost:1338/fastapi/](http://localhost:1338/fastapi)  | api на базе FastApi | 
+| backend/drf/api | `да` | [http://localhost:1338/api/](http://localhost:1338/api/)  | api на базе DRF |
+| backend/django/admin | `да` | [http://localhost:1338/admin/](http://localhost:1338/admin/)  | Django Admin Panel |
+| backend/sphinx  | `да` | [http://localhost:1338/docs/](http://localhost:1338/docs/)  | Документация к django | 
+| db/adminer | `да` | [http://localhost:8099/](http://localhost:8099/)  | Web интерфейс для работы с DB |
+| jupyter | `да` | [http://localhost:1338/jupyter/](http://localhost:1338/jupyter/)  | JupyterLab для DS |
 
 
 |   |  | |
