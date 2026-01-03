@@ -29,19 +29,29 @@ const countFlats = computed(() => {
                 <div class="flex flex-col gap-3" v-if="data">
                     <LayoutCard v-for="item in data.results" :key="item.id">
                         <template #title>
+                            <LayoutBadges
+                                class="flex text-xl mr-3 dark:bg-gray-800 bg-gray-200 rounded-md h-auto items-center">
+                                #{{ item.id }}
+                            </LayoutBadges>
                             <LayoutTitle class="text-xl grow">
                                 {{ item.title }}
                             </LayoutTitle>
-                            <LayoutBadges class="text-xl ml-1 bg-gray-400 rounded-md">
-                                #{{ item.id }}
-                            </LayoutBadges>
-
-                            <LayoutBadges class="text-xl ml-1 bg-gray-400 rounded-md">
-                                {{ item.comments_count }}
+                            <LayoutBadges
+                                class="flex flex-row items-center text-xl ml-3 dark:bg-gray-800 bg-gray-200 rounded-md">
+                                <Icon name="i-lucide:message-circle-more" /> {{ item.comments_count }}
                             </LayoutBadges>
                         </template>
                         <template #description>
                             {{ item.description }}
+                        </template>
+                        <template #footer>
+                            <div class="flex flex-row items-center text-xl">
+                                <Icon name="i-lucide:tags" />
+                                <LayoutBadges class="text-base ml-1 bg-gray-200 dark:bg-gray-700 rounded-md"
+                                    v-for="tag in item.tags">
+                                    {{ tag.name }}
+                                </LayoutBadges>
+                            </div>
                         </template>
                     </LayoutCard>
                 </div>
@@ -61,6 +71,9 @@ const countFlats = computed(() => {
                     </LayoutCard>
                 </LayoutSidebarRight>
             </div>
+        </div>
+        <div class="block my-3">
+            <UPagination v-model:page="paginationPageNumber" :total="countFlats" />
         </div>
     </div>
 </template>
