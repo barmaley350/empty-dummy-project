@@ -186,7 +186,30 @@ pipenv run python -c "from django.core.management.utils import get_random_secret
 Вывод команды скопируйте и вставьте в `SECRET_KEY`
 
 ### Настройки Backend/FastAPI
-sdkjfhsdkjhfdskj
+> [!IMPORTANT]
+> `backend/fastapi` работает с той же базой данных что и `backend/drf`. 
+> Это значит что параметры достура к DB должны быть одинаковые 
+
+```
+cd services/fastapi/
+```
+```
+pipenv sync --dev
+```
+```
+cp .env.example .env
+```
+Укажите значения для `POSTGRES_PASSWORD`
+```
+DATABASE_TYPE="postgresql"
+POSTGRES_DB=dummy_db
+POSTGRES_USER=dummy_user
+
+# Укажите POSTGRES_PASSWORD
+POSTGRES_PASSWORD="" # <--- Укажите
+POSTGRES_HOST=service.db_postgres
+POSTGRES_PORT=5432
+```
 
 ### Настройки Frontend/NuxtJS
 
@@ -233,7 +256,7 @@ docker compose up
 
 # Настройка git pre-commit
 
-> [!NOTE]
+> [!IMPORTANT]
 > Модуль `pre-commit` работает относительно текущей папки запуска git. 
 
 В данном шаблоне структура папок организована по-другому. В целом всё работает также, просто на самописном `sh` скрипте без использования модуля `pre-commit`. Также немного изменена логика: `git commit` не пройдет, если есть любые ошибки и изменения `ruff check` и `ruff format`. 
