@@ -19,6 +19,7 @@ services:
       - ${NGINX_PORT}:80 # <--- В .env файле измените NGINX_PORT на любой другой свободный порт. Например, 1340
     depends_on:
       - service.frontend
+      - service.jupyter
     volumes:
       - static-files:/usr/share/nginx/html/static
     restart: unless-stopped
