@@ -14,7 +14,7 @@ FRONTEND_DIR="${BASE_DIR}/services/nuxtjs"
 PROJECT_NAME=$(basename "$PWD")
 
 NGINX_PORT=1338
-ADMINER_PORT=8099
+
 
 # ------------------------------------------------------------------------------------
 # Названия для шагов
@@ -337,7 +337,7 @@ confirm_creation_env() {
     echo -e "$(service_print_steps_text step54)"
     echo -e "\u2014 Перейдем в каталог $(print_text_info2 ${BASE_DIR})"
     echo -e "\u2014 Выполним команду $(print_text_info2 'cp .env.example .env')"
-    echo -e "\u2014 Настроим $(print_text_info2 'NGINX_PORT') (по умолчанию ${NGINX_PORT}) и $(print_text_info2 'ADMINER_PORT') (по умолчанию ${ADMINER_PORT})"
+    echo -e "\u2014 Настроим $(print_text_info2 'NGINX_PORT') (по умолчанию ${NGINX_PORT})"
     echo -e "Вы всегда сможете изменить эти параметры в файле $(print_text_info2 '.env') в корне проекта."
 
     confirm_to_continue
@@ -505,11 +505,7 @@ create_env_docker() {
     read -rp $' \u00BB Укажите NGINX_PORT (по умолчанию: '"$NGINX_PORT"'): ' nginx_port_value
     NGINX_PORT="${nginx_port_value:-$NGINX_PORT}"
 
-    read -rp $' \u00BB Укажите ADMINER_PORT (по умолчанию: '"$ADMINER_PORT"'): ' adminer_port_value
-    ADMINER_PORT="${adminer_port_value:-$ADMINER_PORT}"
-
     sed -i "s|^NGINX_PORT=.*|NGINX_PORT=$NGINX_PORT|" .env
-    sed -i "s|^ADMINER_PORT=.*|ADMINER_PORT=$ADMINER_PORT|" .env
     sed -i "s|^DB_VOLUME_NAME=.*|DB_VOLUME_NAME=\"$DB_VOLUME_NAME\"|" .env
     sed -i "s|^STATIC_VOLUME_NAME=.*|STATIC_VOLUME_NAME=\"$STATIC_VOLUME_NAME\"|" .env
 
