@@ -21,7 +21,7 @@
 - [License](#license)
 
 # Что это такое и зачем это нужно
-Стартовый проект, который включает в себя все необходимые базовые компоненты для начала разработки web-проекта в рамках микросервисной архитектуры. Вам не нужно тратить время на установку и настройку окружения — всё необходимое уже включено и настроено
+Стартовый проект, который включает в себя все необходимые базовые компоненты для начала разработки web-проекта в рамках микросервисной архитектуры. Вам не нужно тратить время на установку и настройку окружения — всё необходимое уже включено и настроено.
 
 Всё тестировалось и запускалось только на Linux/Ubuntu. Тестирования на Win/Mac не проводилось.
 
@@ -55,25 +55,23 @@
 
 ## Backend Django
 ```
-[packages]
-django = "*"
-djangorestframework = "*"
-gunicorn = "*"
-python-dotenv = "*"
-psycopg2-binary = "*"
-sphinx = "*"
-sphinx-rtd-theme = "*"
-sphinxcontrib-django = "*"
+cd services/drf && pipenv graph | grep -E '^[A-Za-z].*=='
+```
 
-[dev-packages]
-django-debug-toolbar = "*"
-ruff = "*"
-django-extensions = "*"
-factory-boy = "*"
-faker = "*"
-pytest = "*"
-pytest-django = "*"
-coverage = "*"
+```
+coverage==7.12.0
+django-debug-toolbar==6.1.0
+django-extensions==4.1
+djangorestframework==3.16.1
+factory-boy==3.3.3
+gunicorn==23.0.0
+psycopg2-binary==2.9.11
+pydot==4.0.1
+pytest-django==4.11.1
+python-dotenv==1.2.1
+ruff==0.14.8
+sphinx-rtd-theme==3.0.2
+sphinxcontrib-django==2.5
 ```
 Для получения дополнительной информации
 ```
@@ -81,10 +79,13 @@ cd services/drf/ && pipenv graph
 ```
 ## Backend FastApi
 ```
+cd services/fastapi && pipenv graph | grep -E '^[A-Za-z].*=='
+```
+
+```
 [packages]
-fastapi = "*"
-uvicorn = "*"
-pydantic = "*"
+fastapi==0.128.0
+uvicorn==0.40.0
 ```
 Для получения дополнительной информации
 ```
@@ -125,7 +126,9 @@ cd services/nuxtjs/ && npm list
 
 
 # Установка
-`<project_name>` - название вашего проекта. Например, `test-project`
+> [!IMPORTANT]
+> Замените `<project_name>` на название вашего проекта. Например, `test-project`
+
 ```
 mkdir test-project
 ```
