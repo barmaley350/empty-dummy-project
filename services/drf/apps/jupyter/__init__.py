@@ -1,1 +1,1 @@
-"""Docstring для services.backend.apps.jupyter."""
+"""Docstring для services.drf.apps.jupyter."""

@@ -28,6 +28,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("docs/", include("apps.sphinx_docs.urls")),
     path("jupyter/", include("apps.jupyter.urls")),
+    path("adminer/", include("apps.adminer.urls")),
     path("api/", include("apps.testapp.urls")),
 ]
 

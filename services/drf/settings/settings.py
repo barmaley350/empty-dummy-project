@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     "apps.sphinx_docs",
     "apps.testapp",
     "apps.jupyter",
+    "apps.adminer",
 ]
 
 MIDDLEWARE = [

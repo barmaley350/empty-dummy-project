@@ -52,7 +52,7 @@ function toggleDarkMode() {
                 <Icon name="i-lucide:arrow-up-right" />
             </div>
             <div class="flex items-center space-x-1 font-normal">
-                <a href="http://localhost:8099/" target="_blank">Adminer</a>
+                <a href="http://localhost:1338/adminer/" target="_blank">Adminer</a>
                 <Icon name="i-lucide:arrow-up-right" />
             </div>
             <div class="flex items-center space-x-1 font-normal">

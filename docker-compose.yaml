@@ -111,6 +111,8 @@ services:
       - service.db_postgres
     ports:
       - ${ADMINER_PORT}:8080 # <--- В .env файле измените ADMINER_PORT на любой свободный порт, например, 8100 
+    expose:
+      - 8080
     environment:
       ADMINER_DEFAULT_SERVER:  service.db_postgres
     restart: unless-stopped
