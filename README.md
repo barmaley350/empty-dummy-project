@@ -43,11 +43,11 @@
 |  Сервис |auth| Url | Описание |
 | ------------- | - | ------------- | - |
 | frontend/nuxtjs | `нет` | [http://localhost:1338/](http://localhost:1338/)  | frontend на базе NuxtJs |
-| backend/fastapi/api  | `нет` | [http://localhost:1338/fastapi/](http://localhost:1338/fastapi)  | api на базе FastApi | 
+| backend/fastapi/api  | `да` | [http://localhost:1338/fastapi/](http://localhost:1338/fastapi)  | api на базе FastApi | 
 | backend/drf/api | `да` | [http://localhost:1338/api/](http://localhost:1338/api/)  | api на базе DRF |
 | backend/django/admin | `да` | [http://localhost:1338/admin/](http://localhost:1338/admin/)  | Django Admin Panel |
 | backend/sphinx  | `да` | [http://localhost:1338/docs/](http://localhost:1338/docs/)  | Документация к django | 
-| db/adminer | `да` | [http://localhost:8099/](http://localhost:8099/)  | Web интерфейс для работы с DB |
+| db/adminer | `да` | [http://localhost:1338/adminer/](http://localhost:1338/adminer/)  | Web интерфейс для работы с DB |
 | jupyter | `да` | [http://localhost:1338/jupyter/](http://localhost:1338/jupyter/)  | JupyterLab для DS |
 
 
@@ -227,7 +227,7 @@ npm install
 ```
 
 ### Настройки Docker
-По умолчанию `nginx` стартует на порту `1338` а `adminer` на порту `8099`. Если данные порты у вас заняты (один или оба), то необходимо внести изменения в `.env` файл, который расположен в коневой папке проекта предварительно скопировав содежимое `.env.example`
+По умолчанию `nginx` стартует на порту `1338`. Если этот номер порта у вас занят, то необходимо внести изменения в `.env` файл, который расположен в коневой папке проекта предварительно скопировав содежимое `.env.example`
 ```
 # Уникальное название для docker-compose.yaml:db-data
 DB_VOLUME_NAME=
@@ -236,7 +236,6 @@ DB_VOLUME_NAME=
 STATIC_VOLUME_NAME=
 
 NGINX_PORT=1338
-ADMINER_PORT=8099
 ```
 `DB_VOLUME_NAME` и `STATIC_VOLUME_NAME` - настройка данных пареметров вам может никогда не понадобится если вы используете только один проект. 
 
@@ -284,11 +283,11 @@ chmod +x ./run.sh
 |  Сервис |auth| Url | Описание |
 | ------------- | - | ------------- | - |
 | frontend/nuxtjs | `нет` | [http://localhost:1338/](http://localhost:1338/)  | frontend на базе NuxtJs |
-| backend/fastapi/api  | `нет` | [http://localhost:1338/fastapi/](http://localhost:1338/fastapi)  | api на базе FastApi | 
+| backend/fastapi/api  | `да` | [http://localhost:1338/fastapi/](http://localhost:1338/fastapi)  | api на базе FastApi | 
 | backend/drf/api | `да` | [http://localhost:1338/api/](http://localhost:1338/api/)  | api на базе DRF |
 | backend/django/admin | `да` | [http://localhost:1338/admin/](http://localhost:1338/admin/)  | Django Admin Panel |
 | backend/sphinx  | `да` | [http://localhost:1338/docs/](http://localhost:1338/docs/)  | Документация к django | 
-| db/adminer | `да` | [http://localhost:8099/](http://localhost:8099/)  | Web интерфейс для работы с DB |
+| db/adminer | `да` | [http://localhost:1338/adminer/](http://localhost:1338/adminer/)  | Web интерфейс для работы с DB |
 | jupyter | `да` | [http://localhost:1338/jupyter/](http://localhost:1338/jupyter/)  | JupyterLab для DS |
 
 
