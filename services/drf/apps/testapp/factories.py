@@ -57,5 +57,5 @@ class TagFactory(factory.django.DjangoModelFactory):
 
         model = Tag
 
-    # name = factory.Faker("unique.word", locale="en_US")
+    # name = factory.Faker("unique.word", locale="en_US")  # noqa: ERA001
     name = factory.LazyAttribute(lambda _: fake_en.unique.word())
