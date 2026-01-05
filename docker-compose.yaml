@@ -109,8 +109,6 @@ services:
     image: adminer
     depends_on:
       - service.db_postgres
-    ports:
-      - ${ADMINER_PORT}:8080 # <--- В .env файле измените ADMINER_PORT на любой свободный порт, например, 8100 
     expose:
       - 8080
     environment:
