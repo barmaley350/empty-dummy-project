@@ -30,7 +30,7 @@ const countFlats = computed(() => {
                                 class="flex text-xl mr-3 dark:bg-gray-800 bg-gray-200 rounded-md h-auto items-center">
                                 #{{ item.id }}
                             </LayoutBadges>
-                            <LayoutTitle class="text-xl grow">
+                            <LayoutTitle class="text-xl grow font-bold">
                                 {{ item.title }}
                             </LayoutTitle>
                             <LayoutBadges
@@ -58,7 +58,7 @@ const countFlats = computed(() => {
                 <LayoutSidebarRight>
                     <LayoutCard>
                         <template #title>
-                            <LayoutTitle class="text-xl">Фильтры</LayoutTitle>
+                            <LayoutTitle class="text-xl font-bold">Фильтры</LayoutTitle>
                         </template>
                         <template #description>
                             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt adipisci necessitatibus
@@ -68,7 +68,7 @@ const countFlats = computed(() => {
                     </LayoutCard>
                     <LayoutCard>
                         <template #title>
-                            <LayoutTitle class="text-xl">Статистика</LayoutTitle>
+                            <LayoutTitle class="text-xl font-bold">Статистика</LayoutTitle>
                         </template>
                         <template #description>
                             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt adipisci necessitatibus

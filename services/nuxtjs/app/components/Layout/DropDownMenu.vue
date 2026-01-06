@@ -35,6 +35,16 @@ const isOpen = ref(false)
                 <div>API DRF</div>
                 <!-- <Icon name="i-lucide:arrow-up-right" /> -->
             </a>
+            <a href="/api/docs/" target="_blank"
+                class="flex justify-between items-center space-x-3 px-4 py-2 text-gray-900 dark:text-white hover:text-gray-900 hover:bg-gray-100">
+                <div>API DRF / Docs</div>
+                <!-- <Icon name="i-lucide:arrow-up-right" /> -->
+            </a>
+            <a href="/api/redoc/" target="_blank"
+                class="flex justify-between items-center space-x-3 px-4 py-2 text-gray-900 dark:text-white hover:text-gray-900 hover:bg-gray-100">
+                <div>API DRF / Redoc</div>
+                <!-- <Icon name="i-lucide:arrow-up-right" /> -->
+            </a>
             <a href="/fastapi/" target="_blank"
                 class="flex justify-between items-center space-x-3 px-4 py-2 text-gray-900 dark:text-white hover:text-gray-900 hover:bg-gray-100">
                 <div>API FastAPI</div>
