@@ -12,6 +12,7 @@ psycopg2-binary = "*"
 sphinx = "*"
 sphinx-rtd-theme = "*"
 sphinxcontrib-django = "*"
+drf-spectacular = "*"
 
 [dev-packages]
 django-debug-toolbar = "*"

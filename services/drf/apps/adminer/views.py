@@ -17,6 +17,7 @@ class ProtectedAdminerView(View):
         :return: Описание
         :rtype: HttpResponse
         """
+        # TODO Нужно создать одно приложение для проверки auth на основе request.path_info & разрешений  # noqa: E501
         if request.user.is_authenticated and request.user.is_staff:
             return HttpResponse(status=status.HTTP_200_OK)
 

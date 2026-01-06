@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "django_extensions",
     "debug_toolbar",
+    "drf_spectacular",
     "apps.sphinx_docs",
     "apps.testapp",
     "apps.jupyter",
@@ -208,6 +209,7 @@ REST_FRAMEWORK = {
     "DEFAULT_RENDERER_CLASSES": DEFAULT_RENDERER_CLASSES,
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     "PAGE_SIZE": 5,
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
 # https://django-extensions.readthedocs.io/en/latest/graph_models.html
@@ -220,3 +222,13 @@ GRAPH_MODELS = {
 # Не позволяет копировать папку целиком - только файлы из папки  # noqa: RUF003
 # Пришлось создавать ln -s docs/_build/html в apps/sphinx_docs/statis
 # STATICFILES_DIRS = [BASE_DIR / "docs/_build/html"]  # noqa: ERA001
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "My API",
+    "DESCRIPTION": "API documentation for my project",
+    "VERSION": "1.0.0",
+    "SERVE_INCLUDE_SCHEMA": False,  # не отдавать схему по URL
+    # Для sidecar (если установлен):
+    # 'SWAGGER_UI_DIST': 'SIDECAR',  # noqa: ERA001
+    # 'REDOC_DIST': 'SIDECAR',  # noqa: ERA001
+}

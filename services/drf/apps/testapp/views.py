@@ -1,14 +1,15 @@
 """Docstring for services.backend.apps.testapp.views."""
 
 from django.db.models import Count, Prefetch
-from rest_framework import generics
+from rest_framework import generics, viewsets  # noqa: F401 # TODO Убрать
 
 from apps.testapp.models import Comment, Project
 
 from .serializers import ProjectSerializer
 
 
-class ProjectList(generics.ListCreateAPIView):
+# class ProjectList(generics.ListCreateAPIView):
+class ProjectList(viewsets.ModelViewSet):
     """Docstring for ProjectList."""
 
     # queryset = Project.objects.prefetch_related("comments").all()  # noqa: ERA001
