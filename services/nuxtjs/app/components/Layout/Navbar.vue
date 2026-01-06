@@ -36,39 +36,42 @@ const isDark = computed(() => colorMode.value === 'dark')
 function toggleDarkMode() {
     colorMode.preference = isDark.value ? 'light' : 'dark'
 }
+
 </script>
 <template>
     <div class="flex justify-between sticky top-0 z-50 py-5 px-5 bg-white dark:bg-gray-900">
         <div class="flex space-x-5 justify-start">
-            <div class="flex items-center space-x-1 font-normal" v-for="url in urls_left">
+            <div class="flex items-center space-x-1 font-normal text-xl" v-for="url in urls_left">
                 <NuxtLink class="navbar-brand" :to="url['url']">{{ url['label'] }}</NuxtLink>
             </div>
+            <!-- <div class="flex items-center space-x-1 font-normal">
+                <a href="/admin/" target="_blank">Django Admin</a>
+                <Icon name="i-lucide:arrow-up-right" />
+            </div>
+
             <div class="flex items-center space-x-1 font-normal">
-                <a href="http://localhost:1338/admin/" target="_blank">Django Admin</a>
+                <a href="/docs/index.html" target="_blank">Sphinx docs</a>
                 <Icon name="i-lucide:arrow-up-right" />
             </div>
             <div class="flex items-center space-x-1 font-normal">
-                <a href="http://localhost:1338/docs/index.html" target="_blank">Sphinx docs</a>
+                <a href="/adminer/" target="_blank">Adminer</a>
                 <Icon name="i-lucide:arrow-up-right" />
             </div>
             <div class="flex items-center space-x-1 font-normal">
-                <a href="http://localhost:1338/adminer/" target="_blank">Adminer</a>
+                <a href="/api/" target="_blank">API DRF</a>
                 <Icon name="i-lucide:arrow-up-right" />
             </div>
             <div class="flex items-center space-x-1 font-normal">
-                <a href="http://localhost:1338/api/" target="_blank">API DRF</a>
+                <a href="/fastapi/" target="_blank">API FastAPI</a>
                 <Icon name="i-lucide:arrow-up-right" />
             </div>
             <div class="flex items-center space-x-1 font-normal">
-                <a href="http://localhost:1338/fastapi/" target="_blank">API FastAPI</a>
+                <a href="/jupyter/" target="_blank">Jupyter</a>
                 <Icon name="i-lucide:arrow-up-right" />
-            </div>
-            <div class="flex items-center space-x-1 font-normal">
-                <a href="http://localhost:1338/jupyter/" target="_blank">Jupyter</a>
-                <Icon name="i-lucide:arrow-up-right" />
-            </div>
+            </div> -->
         </div>
         <div class="flex items-center space-x-3 font-normal">
+            <LayoutDropDownMenu></LayoutDropDownMenu>
             <div class="flex gap-x-2 px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded-md items-center">
                 <Icon name="i-lucide:log-in" />
                 <NuxtLink class="navbar-brand" :to="urls_right['login']['url']">Вход</NuxtLink>

@@ -6,14 +6,11 @@ let url = "baseURL" in runtimeConfig ? runtimeConfig.baseURL + 'project/' : wind
 const { data, status, error, pending } = await useFetch(url, {
     query: {
         page: paginationPageNumber,
-        // sort_price_order: sortPriceOrder,
     },
-    // lazy: true,
 })
-console.log(data)
+
 const countFlats = computed(() => {
     if (status.value == "success") {
-        // globalCounter1.value = data.value["count"]
         return data.value["count"]
     }
 })
@@ -61,7 +58,17 @@ const countFlats = computed(() => {
                 <LayoutSidebarRight>
                     <LayoutCard>
                         <template #title>
-                            <LayoutTitle class="text-2xl">Title 1</LayoutTitle>
+                            <LayoutTitle class="text-xl">Фильтры</LayoutTitle>
+                        </template>
+                        <template #description>
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt adipisci necessitatibus
+                            nostrum, maiores aliquid soluta laudantium at, minima molestiae commodi praesentium est
+                            officia eius quae reprehenderit quibusdam rem distinctio accusantium.
+                        </template>
+                    </LayoutCard>
+                    <LayoutCard>
+                        <template #title>
+                            <LayoutTitle class="text-xl">Статистика</LayoutTitle>
                         </template>
                         <template #description>
                             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt adipisci necessitatibus
