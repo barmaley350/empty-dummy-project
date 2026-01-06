@@ -100,6 +100,9 @@ help() {
     print_text_white " \u2501 Создать django admin createsuperuser \n"  
     print_text_blue "ca | create_apps [app_name]"
     print_text_white " \u2501 Создать новое приложение django \n"  
+    line2 
+    print_text_white "[command] - Персональные команды\n"
+    print_text_blue "g1 | git checkout main && git merge dev && git push origin main && git checkout dev"
     echo -e ""
 }
 # pytest
@@ -225,6 +228,18 @@ command_django_apps() {
     return 0
 
 }
+command_git() {
+    cd $SCRIPT_DIR
+    git checkout main && git merge dev && git push origin main && git checkout dev
+
+    if [ $? -ne 0 ]; then
+        print_text_block error "Ошибка выполнения комманды git"
+        exit $?
+    fi
+    print_text_block success "Команда git выполнилась успешно"
+    return 0
+
+}
 command_ruff_all() {
     command_ruff_check
     command_ruff_format
@@ -284,7 +299,10 @@ main() {
             ;;    
         ca | create_apps)
             command_django_apps $@
-            ;;                                                                                                 
+            ;;      
+        g1)
+            command_git $@
+            ;;                                                                                               
         *)
             print_text_error "Не известная комманда - $command"
             ;;        
