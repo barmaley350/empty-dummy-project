@@ -34,9 +34,17 @@ const countFlats = computed(() => {
                                 {{ item.title }}
                             </LayoutTitle>
                             <LayoutBadges
-                                class="flex flex-row items-center text-xl ml-3 dark:bg-gray-800 bg-gray-200 rounded-md">
+                                class="flex flex-row gap-1 items-center text-xl ml-3 dark:bg-gray-800 bg-gray-200 rounded-md">
                                 <Icon name="i-lucide:message-circle-more" /> {{ item.comments_count }}
                             </LayoutBadges>
+                        </template>
+                        <template #author>
+                            <div class="text-gray-500">
+                                @{{ item.owner.username }} /
+                                {{ item.owner.email }} /
+                                {{ item.owner.first_name }}
+                                {{ item.owner.last_name }}
+                            </div>
                         </template>
                         <template #description>
                             {{ item.description }}
