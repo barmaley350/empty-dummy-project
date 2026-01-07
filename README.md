@@ -47,7 +47,9 @@
 | backend/fastapi/api  | `да` | [http://localhost:1338/fastapi/](http://localhost:1338/fastapi)  | api на базе FastApi | 
 | backend/drf/api | `да` | [http://localhost:1338/api/](http://localhost:1338/api/)  | api на базе DRF |
 | backend/django/admin | `да` | [http://localhost:1338/admin/](http://localhost:1338/admin/)  | Django Admin Panel |
-| backend/sphinx  | `да` | [http://localhost:1338/docs/](http://localhost:1338/docs/)  | Документация к django | 
+| backend/sphinx  | `да` | [http://localhost:1338/docs/](http://localhost:1338/docs/)  | Документация к django моделям | 
+| django/api/docs  | `да` | [http://localhost:1338/api/docs/](http://localhost:1338/api/docs/)  | Документация к django/api | 
+| django/api/redoc  | `да` | [http://localhost:1338/api/redoc/](http://localhost:1338/api/redoc)  | Документация к django/api | 
 | db/adminer | `да` | [http://localhost:1338/adminer/](http://localhost:1338/adminer/)  | Web интерфейс для работы с DB |
 | jupyter | `да` | [http://localhost:1338/jupyter/](http://localhost:1338/jupyter/)  | JupyterLab для DS |
 
