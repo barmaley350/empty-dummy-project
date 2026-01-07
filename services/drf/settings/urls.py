@@ -34,7 +34,7 @@ urlpatterns = [
     path("docs/", include("apps.sphinx_docs.urls")),
     path("jupyter/", include("apps.jupyter.urls")),
     path("adminer/", include("apps.adminer.urls")),
-    path("api/", include("apps.testapp.urls")),
+    path("api/v1/", include("apps.testapp.urls")),
     path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
     path(
         "api/docs/",
