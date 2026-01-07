@@ -30,7 +30,7 @@ const isOpen = ref(false)
                 <div>Adminer</div>
                 <LayoutBadges class="bg-red-200 dark:text-gray-900 rounded-sm">auth</LayoutBadges>
             </a>
-            <a href="/api/" target="_blank"
+            <a href="/api/v1/" target="_blank"
                 class="flex justify-between items-center space-x-3 px-4 py-2 text-gray-900 dark:text-white hover:text-gray-900 hover:bg-gray-100">
                 <div>API DRF</div>
                 <!-- <Icon name="i-lucide:arrow-up-right" /> -->
