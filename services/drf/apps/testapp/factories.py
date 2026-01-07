@@ -1,6 +1,7 @@
 """Docstring for services.backend.apps.testapp.factories."""
 
 import factory
+from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import User
 from faker import Faker
 
@@ -17,6 +18,12 @@ class UserFactory(factory.django.DjangoModelFactory):
         """Docstring для Meta."""
 
         model = User
+
+    username = factory.Faker("user_name")
+    email = factory.Faker("email")
+    first_name = factory.Faker("first_name")
+    last_name = factory.Faker("last_name")
+    password = factory.LazyFunction(lambda: make_password("testpass123"))
 
 
 class ProjectFactory(factory.django.DjangoModelFactory):
