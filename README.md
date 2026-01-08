@@ -48,8 +48,8 @@
 | backend/drf/api | `да` | [http://localhost:1338/api/v1/](http://localhost:1338/api/v1/)  | api на базе DRF |
 | backend/django/admin | `да` | [http://localhost:1338/admin/](http://localhost:1338/admin/)  | Django Admin Panel |
 | backend/sphinx  | `да` | [http://localhost:1338/docs/](http://localhost:1338/docs/)  | Документация к django моделям | 
-| django/api/docs  | `да` | [http://localhost:1338/api/docs/](http://localhost:1338/api/docs/)  | Документация к django/api | 
-| django/api/redoc  | `да` | [http://localhost:1338/api/redoc/](http://localhost:1338/api/redoc)  | Документация к django/api | 
+| django/api/swagger  | `да` | [http://localhost:1338/django-api-swagger/](http://localhost:1338/django-api-swagger/)  | Документация к django/api/swagger | 
+| django/api/redoc  | `да` | [http://localhost:1338/django-api-redoc/](http://localhost:1338/django-api-redoc/)  | Документация к django/api/redoc | 
 | db/adminer | `да` | [http://localhost:1338/adminer/](http://localhost:1338/adminer/)  | Web интерфейс для работы с DB |
 | jupyter | `да` | [http://localhost:1338/jupyter/](http://localhost:1338/jupyter/)  | JupyterLab для DS |
 
@@ -299,7 +299,7 @@ chmod +x ./run.sh
 |![img_1](files/img/website/s1.png)  | ![img_1](files/img/website/s2.png)  | ![img_1](files/img/website/s3.png)  |
 |![img_1](files/img/website/s4.png)  | ![img_1](files/img/website/s5.png)  | ![img_1](files/img/website/s6.png)  |
 |![img_1](files/img/sphinx/sphinx.png)  | ![img_1](files/img/admin/admin.png)  | ![img_1](files/img/restapi/django_rest.png)  |
-|![img_1](files/img/jupyter/1.png)  |   |  |
+|![img_1](files/img/jupyter/1.png)  | ![img_1](files/img/website/s7.png)  | ![img_1](files/img/website/s8.png) |
 
 # License
 [MIT](LICENSE)
