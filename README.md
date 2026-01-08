@@ -1,11 +1,11 @@
 # Оглавление
 - [Что это такое и зачем это нужно](#что-это-такое-и-зачем-это-нужно)
 - [Общая схема работы](#общая-схема-работы)
-  - [Доступность сервисов](#доступность-сервисов)
-  - [Установленные и настроенные модули](#установленные-и-настроенные-модули)
-    - [Backend/Django](#backend-django)
-    - [Backend/FastApi](#backend-fastapi)
-    - [Frontend/Nuxtjs](#frontend-nuxtjs)
+- [Доступные сервисы](#доступные-сервисы)
+- [Установленные и настроенные модули](#установленные-и-настроенные-модули)
+  - [Backend/Django](#backend-django)
+  - [Backend/FastApi](#backend-fastapi)
+  - [Frontend/Nuxtjs](#frontend-nuxtjs)
 - [Что нужно для локальной работы](#что-нужно-для-локальной-работы)
 - [Установка](#установка)
 - [Настройка](#настройка)
@@ -17,7 +17,6 @@
     - [Docker (опционально)](#настройки-docker)
 - [Первый запуск](#первый-запуск)
 - [Настройка git pre-commit](#настройка-git-pre-commit)
-- [Если все прошло успешно](#если-все-прошло-успешно)
 - [License](#license)
 
 # Что это такое и зачем это нужно
@@ -35,7 +34,7 @@
 | Backend/DRF  | [Readme.md](./services/drf/README.md)  |
 
 
-# Доступность сервисов  
+# Доступные сервисы  
 
 > [!IMPORTANT]
 > Замените порт `1338` на тот который вы указали при настройке проекта.
@@ -53,6 +52,12 @@
 | db/adminer | `да` | [http://localhost:1338/adminer/](http://localhost:1338/adminer/)  | Web интерфейс для работы с DB |
 | jupyter | `да` | [http://localhost:1338/jupyter/](http://localhost:1338/jupyter/)  | JupyterLab для DS |
 
+|   |  | |
+| ------------- | ------------- |  ------------- |
+|![img_1](files/img/website/s1.png)  | ![img_1](files/img/website/s2.png)  | ![img_1](files/img/website/s3.png)  |
+|![img_1](files/img/website/s4.png)  | ![img_1](files/img/website/s5.png)  | ![img_1](files/img/website/s6.png)  |
+|![img_1](files/img/sphinx/sphinx.png)  | ![img_1](files/img/admin/admin.png)  | ![img_1](files/img/restapi/django_rest.png)  |
+|![img_1](files/img/jupyter/1.png)  | ![img_1](files/img/website/s7.png)  | ![img_1](files/img/website/s8.png) |
 
 # Установленные и настроенные модули
 
@@ -279,27 +284,6 @@ chmod +x ./run.sh
 ./run.sh
 ```
 ![img_1](files/img/runsh/run_script.png)
-
-# Если все прошло успешно
-Если не менялись порты по умолчанию
-
-|  Сервис |auth| Url | Описание |
-| ------------- | - | ------------- | - |
-| frontend/nuxtjs | `нет` | [http://localhost:1338/](http://localhost:1338/)  | frontend на базе NuxtJs |
-| backend/fastapi/api  | `да` | [http://localhost:1338/fastapi/](http://localhost:1338/fastapi)  | api на базе FastApi | 
-| backend/drf/api | `да` | [http://localhost:1338/api/](http://localhost:1338/api/)  | api на базе DRF |
-| backend/django/admin | `да` | [http://localhost:1338/admin/](http://localhost:1338/admin/)  | Django Admin Panel |
-| backend/sphinx  | `да` | [http://localhost:1338/docs/](http://localhost:1338/docs/)  | Документация к django | 
-| db/adminer | `да` | [http://localhost:1338/adminer/](http://localhost:1338/adminer/)  | Web интерфейс для работы с DB |
-| jupyter | `да` | [http://localhost:1338/jupyter/](http://localhost:1338/jupyter/)  | JupyterLab для DS |
-
-
-|   |  | |
-| ------------- | ------------- |  ------------- |
-|![img_1](files/img/website/s1.png)  | ![img_1](files/img/website/s2.png)  | ![img_1](files/img/website/s3.png)  |
-|![img_1](files/img/website/s4.png)  | ![img_1](files/img/website/s5.png)  | ![img_1](files/img/website/s6.png)  |
-|![img_1](files/img/sphinx/sphinx.png)  | ![img_1](files/img/admin/admin.png)  | ![img_1](files/img/restapi/django_rest.png)  |
-|![img_1](files/img/jupyter/1.png)  | ![img_1](files/img/website/s7.png)  | ![img_1](files/img/website/s8.png) |
 
 # License
 [MIT](LICENSE)
