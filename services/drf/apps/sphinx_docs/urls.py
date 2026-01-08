@@ -2,9 +2,9 @@
 
 from django.urls import path
 
-from apps.sphinx_docs.views import ProtectedSphinxView
+from apps.sphinx_docs.views import SphinxView
 
 urlpatterns = [
-    path("<path:path>", ProtectedSphinxView.as_view(), name="sphinx_docs"),
-    path("", ProtectedSphinxView.as_view(), name="sphinx_docs_root"),
+    path("<path:path>", SphinxView.as_view(), name="sphinx_docs"),
+    path("", SphinxView.as_view(), name="sphinx_docs_root"),
 ]

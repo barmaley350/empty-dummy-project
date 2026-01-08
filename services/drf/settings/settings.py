@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     "django_extensions",
     "debug_toolbar",
     "drf_spectacular",
+    "apps.auth_check",
     "apps.sphinx_docs",
     "apps.testapp",
     "apps.jupyter",
@@ -152,7 +153,6 @@ STATIC_ROOT = BASE_DIR / "static/"
 
 MEDIA_URL = "/public/"
 MEDIA_ROOT = BASE_DIR / "public"
-
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

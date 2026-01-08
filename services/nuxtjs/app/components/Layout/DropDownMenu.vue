@@ -14,13 +14,24 @@ const isOpen = ref(false)
 
         <!-- Меню -->
         <div v-show="isOpen" @click="isOpen = false"
-            class="text-gray-700 absolute mt-2 w-52 bg-white border border-gray-400 rounded shadow-lg z-50 dark:bg-gray-700">
+            class="text-gray-700 absolute mt-2 w-62 bg-white border border-gray-400 rounded shadow-lg z-50 dark:bg-gray-700">
+            <a href="/api/v1/" target="_blank"
+                class="flex justify-between items-center space-x-3 px-4 py-2 text-gray-900 dark:text-white hover:text-gray-900 hover:bg-gray-100">
+                <div>API Django drf</div>
+                <!-- <Icon name="i-lucide:arrow-up-right" /> -->
+            </a>
+            <a href="/fastapi/" target="_blank"
+                class="flex justify-between items-center space-x-3 px-4 py-2 text-gray-900 dark:text-white hover:text-gray-900 hover:bg-gray-100">
+                <div>API FastAPI</div>
+                <!-- <Icon name="i-lucide:arrow-up-right" /> -->
+            </a>
+            <div class="border-b border-gray-400"></div>
             <a href="/admin/" target="_blank"
                 class="flex justify-between items-center space-x-3 px-4 py-2 text-gray-900 dark:text-white hover:text-gray-900 hover:bg-gray-100">
                 <div>Django Admin</div>
                 <LayoutBadges class="bg-red-200 dark:text-gray-900 rounded-sm">auth</LayoutBadges>
             </a>
-            <a href="/docs/index.html" target="_blank"
+            <a href="/sphinx/" target="_blank"
                 class="flex justify-between items-center space-x-3 px-4 py-2 text-gray-900 dark:text-white hover:text-gray-900 hover:bg-gray-100">
                 <div>Sphinx docs</div>
                 <LayoutBadges class="bg-red-200 dark:text-gray-900 rounded-sm">auth</LayoutBadges>
@@ -30,25 +41,15 @@ const isOpen = ref(false)
                 <div>Adminer</div>
                 <LayoutBadges class="bg-red-200 dark:text-gray-900 rounded-sm">auth</LayoutBadges>
             </a>
-            <a href="/api/v1/" target="_blank"
+            <a href="/django-api-swagger/" target="_blank"
                 class="flex justify-between items-center space-x-3 px-4 py-2 text-gray-900 dark:text-white hover:text-gray-900 hover:bg-gray-100">
-                <div>API DRF</div>
-                <!-- <Icon name="i-lucide:arrow-up-right" /> -->
+                <div>API DRF / Swagger</div>
+                <LayoutBadges class="bg-red-200 dark:text-gray-900 rounded-sm">auth</LayoutBadges>
             </a>
-            <a href="/api/docs/" target="_blank"
-                class="flex justify-between items-center space-x-3 px-4 py-2 text-gray-900 dark:text-white hover:text-gray-900 hover:bg-gray-100">
-                <div>API DRF / Docs</div>
-                <!-- <Icon name="i-lucide:arrow-up-right" /> -->
-            </a>
-            <a href="/api/redoc/" target="_blank"
+            <a href="/django-api-redoc/" target="_blank"
                 class="flex justify-between items-center space-x-3 px-4 py-2 text-gray-900 dark:text-white hover:text-gray-900 hover:bg-gray-100">
                 <div>API DRF / Redoc</div>
-                <!-- <Icon name="i-lucide:arrow-up-right" /> -->
-            </a>
-            <a href="/fastapi/" target="_blank"
-                class="flex justify-between items-center space-x-3 px-4 py-2 text-gray-900 dark:text-white hover:text-gray-900 hover:bg-gray-100">
-                <div>API FastAPI</div>
-                <!-- <Icon name="i-lucide:arrow-up-right" /> -->
+                <LayoutBadges class="bg-red-200 dark:text-gray-900 rounded-sm">auth</LayoutBadges>
             </a>
             <a href="/jupyter/" target="_blank"
                 class="flex justify-between items-center space-x-3 px-4 py-2 text-gray-900 dark:text-white hover:text-gray-900 hover:bg-gray-100">

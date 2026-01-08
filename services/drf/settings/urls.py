@@ -31,17 +31,20 @@ admin.site.site_header = "Тестовый проект"
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("docs/", include("apps.sphinx_docs.urls")),
-    path("jupyter/", include("apps.jupyter.urls")),
-    path("adminer/", include("apps.adminer.urls")),
+    path("auth-check/", include("apps.auth_check.urls")),
+    path("sphinx/", include("apps.sphinx_docs.urls")),
     path("api/v1/", include("apps.testapp.urls")),
-    path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
+    path("django-api-schema/", SpectacularAPIView.as_view(), name="schema"),
     path(
-        "api/docs/",
+        "django-api-swagger/",
         SpectacularSwaggerView.as_view(url_name="schema"),
-        name="swagger-ui",
+        name="swagger",
     ),
-    path("api/redoc/", SpectacularRedocView.as_view(url_name="schema"), name="redoc"),
+    path(
+        "django-api-redoc/",
+        SpectacularRedocView.as_view(url_name="schema"),
+        name="redoc",
+    ),
 ]
 
 if settings.DEBUG:
