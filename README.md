@@ -16,6 +16,9 @@
     - [Frontend/NuxtJS](#настройки-frontendnuxtjs)
     - [Docker (опционально)](#настройки-docker)
 - [Первый запуск](#первый-запуск)
+  - [Запустить Docker](#запустить-docker)
+  - [Создать django superuser](#создать-django-superuser)
+  - [Наполнить базу тестовыми данными](#наполнить-базу-тестовыми-данными)
 - [Настройка git pre-commit](#настройка-git-pre-commit)
 - [License](#license)
 
@@ -254,7 +257,7 @@ NGINX_PORT=1338
 Скрипт `init.sh` создает эти переменные как `$PROJECT_NAME-db-volume` и `$PROJECT_NAME-static-volume`. Вы можете сделать также.
 
 # Первый запуск
-
+## Запустить Docker
 Первый запуск - собрать и запустить
 ```
 docker compose up --build
@@ -263,7 +266,14 @@ docker compose up --build
 ```
 docker compose up
 ```
-
+## Создать django superuser
+```
+./run.sh m createsuperuser
+```
+## Наполнить базу тестовыми данными
+```
+./run.sh m testapp_fill_all_models
+```
 # Настройка git pre-commit
 
 > [!IMPORTANT]
