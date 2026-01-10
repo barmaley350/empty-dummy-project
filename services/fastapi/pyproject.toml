@@ -1,0 +1,35 @@
+[project]
+name = "Empty dummy project"
+version = "0.1.0"
+description = "Empty dummy project"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+extend-exclude = [
+    ".git",
+    ".mypy_cache",
+    ".pre-commit-cache",
+    ".ruff_cache",
+    ".tox",
+    ".venv",
+    "venv",
+    "__pycache",
+    "**/migrations/*",
+    "manage.py",
+    "apps/jupyter/jupyter_files",
+    "db/models.py",
+]
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = ["S101", "D203", "D213", "COM812", "TD003", "TD004", "TD002", "FIX002"]
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.ruff.format]
+# Prefer single quotes over double quotes.
+quote-style = "double"
