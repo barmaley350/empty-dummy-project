@@ -231,7 +231,13 @@ command_django_apps() {
 }
 command_git() {
     cd $SCRIPT_DIR
-    git checkout main && git merge dev && git push origin main && git checkout dev
+    git checkout main 
+    git merge dev 
+
+    git push github main 
+    git push gitlab main
+
+    git checkout dev
 
     if [ $? -ne 0 ]; then
         print_text_block error "Ошибка выполнения комманды git"
