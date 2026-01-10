@@ -148,10 +148,16 @@ mkdir test-project
 ```
 cd test-project/
 ```
+Клонируйте репозиторий
+
+Для GitHub
 ```
 git clone https://github.com/barmaley350/start-project.git .
 ```
-
+Для GitLab
+```
+git clone https://gitlab.com/barmaley350/start-project.git .
+```
 # Настройка
 ## Автоматическая настройка с использованием init.sh
 Самый простой способ настроить проект для работы - запусть `init.sh` скрипт который находится в корневой папке проекта.
