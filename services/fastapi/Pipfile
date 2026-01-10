@@ -7,6 +7,10 @@ name = "pypi"
 fastapi = "*"
 uvicorn = "*"
 pydantic = "*"
+sqlacodegen = "*"
+sqlalchemy = "*"
+psycopg2-binary = "*"
+ruff = "*"
 
 [dev-packages]
 
