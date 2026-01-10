@@ -1,7 +1,7 @@
 <template>
     <UContainer>
-        <LayoutNavbar />
-        <slot/>
+        <LayoutNavBar2 />
+        <slot />
         <LayoutFooter />
     </UContainer>
 </template>
