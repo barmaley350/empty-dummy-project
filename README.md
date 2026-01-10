@@ -73,7 +73,7 @@ cd services/drf && pipenv graph | grep -E '^[A-Za-z].*=='
 coverage==7.12.0
 django-debug-toolbar==6.1.0
 django-extensions==4.1
-djangorestframework==3.16.1
+drf-spectacular==0.29.0
 factory-boy==3.3.3
 gunicorn==23.0.0
 psycopg2-binary==2.9.11
@@ -94,8 +94,10 @@ cd services/fastapi && pipenv graph | grep -E '^[A-Za-z].*=='
 ```
 
 ```
-[packages]
 fastapi==0.128.0
+psycopg2-binary==2.9.11
+ruff==0.14.11
+sqlacodegen==3.2.0
 uvicorn==0.40.0
 ```
 Для получения дополнительной информации
