@@ -1,7 +1,16 @@
+<script setup>
+const props = defineProps({
+    class: {
+        type: [String, Array, Object],
+        default: ''
+    }
+})
+</script>
+
 <template>
-    <div class="flex flex-col gap-3">
-        <div class="flex flex-col border border-gray-300 rounded-sm dark:border-gray-600">
-            <div class="flex flex-row p-3 bg-gray-300 rounded-t-sm dark:bg-gray-700">
+    <div class="flex flex-col gap-3" :class="class">
+        <div class="flex flex-col border border-gray-200 rounded-sm dark:border-gray-600 h-full">
+            <div class="flex flex-row p-3 bg-gray-200 rounded-t-sm dark:bg-gray-700">
                 <slot name="title" />
             </div>
             <div v-if="$slots.author" class="p-3 border-b border-gray-300 dark:border-gray-600">

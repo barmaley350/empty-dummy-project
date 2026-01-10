@@ -29,12 +29,12 @@
 
         <div class="flex justify-center">
             <LayoutText>
-                <template #header-primary>
+                <template #header_primary>
                     <LayoutTitle class="text-5xl font-bold underline">
                         Header Primary
                     </LayoutTitle>
                 </template>
-                <template #header-secondary>
+                <template #header_secondary>
                     <LayoutTitle class="text-2xl">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum ea dignissimos eveniet expedita
                         in officiis quisquam, blanditiis ipsum pariatur tempore. Odio dicta esse cum totam. Facere
@@ -61,12 +61,12 @@
 
         <div class="flex justify-center">
             <LayoutText>
-                <template #header-primary>
+                <template #header_primary>
                     <LayoutTitle class="text-5xl font-bold underline">
                         Header Primary
                     </LayoutTitle>
                 </template>
-                <template #header-secondary>
+                <template #header_secondary>
                     <LayoutTitle class="text-2xl">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit
                     </LayoutTitle>
