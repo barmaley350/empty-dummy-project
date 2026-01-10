@@ -231,11 +231,15 @@ command_django_apps() {
 }
 command_git() {
     cd $SCRIPT_DIR
+        
     git checkout main 
     git merge dev 
 
-    git push github main 
+    git push gitlab dev
+    git push github dev
     git push gitlab main
+    git push github main 
+    
 
     git checkout dev
 
