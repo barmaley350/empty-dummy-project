@@ -2,24 +2,14 @@
 
 from fastapi import FastAPI
 
-app = FastAPI(title="My FastAPI App", version="1.0.0")
+from .routers.main import router as main_router
+from .routers.projects import router as projects_router
 
+app = FastAPI(
+    title="FastAPI",
+    version="1.0.0",
+    root_path="/fastapi",
+)
 
-@app.get("/")
-def read_root() -> None:
-    """_summary_.
-
-    :return: _description_
-    :rtype: _type_
-    """
-    return {"message": "Hello from FastAPI in Docker!"}
-
-
-@app.get("/health")
-def health_check() -> dict:
-    """_summary_.
-
-    :return: _description_
-    :rtype: dict
-    """
-    return {"status": "healthy"}
+app.include_router(main_router)
+app.include_router(projects_router)
