@@ -33,7 +33,7 @@ class Comment(models.Model):
         verbose_name = "Коментарий"
         verbose_name_plural = "Коментарии"
 
-    def __str__(self) -> str:
+    def __str__(self) -> str:  # pylint: disable=E0307
         """Docstring for __str__.
 
         :param self: Description

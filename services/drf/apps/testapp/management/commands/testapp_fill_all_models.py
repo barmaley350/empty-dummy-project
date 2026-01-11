@@ -1,4 +1,4 @@
-"""Docstring для services.backend.apps.testapp.management.commands.testapp_fill_all_models."""  # noqa: E501
+"""Docstring для testapp_fill_all_models."""
 
 import random
 from typing import Any
@@ -103,7 +103,6 @@ class Command(BaseCommand):
             project.save()
 
             project.tags.add(*random.choices(tags, k=random.randint(3, 6)))  # noqa: S311
-            # CommentFactory.create_batch(random.randint(5, 20), project=project)  # noqa: E501, ERA001
 
             for _ in range(random.randint(5, 20)):  # noqa: S311
                 CommentFactory.create(project=project, owner=random.choice(users))  # noqa: S311

@@ -39,7 +39,7 @@ class ProtectedUrlView(View):
         :return: Описание
         :rtype: HttpResponse
         """
-        # TODO Добавить проверку по группам
+        # TODO Добавить проверку по группам pylint: disable=W0511
         if self.check_url(request) and request.user.is_authenticated:
             return HttpResponse(status=status.HTTP_200_OK)
         return HttpResponse(status=status.HTTP_401_UNAUTHORIZED)

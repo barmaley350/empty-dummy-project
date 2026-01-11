@@ -9,10 +9,10 @@ from django.utils.text import slugify
 class Tag(models.Model):
     """Docstring для Tag."""
 
-    name = models.CharField(max_length=50, unique=True)
+    name = models.CharField(max_length=50, unique=True, null=False, blank=False)
     slug = models.SlugField(unique=True)
 
-    def __str__(self) -> str:
+    def __str__(self) -> str:  # pylint: disable=E0307
         """Docstring для __str__.
 
         :param self: Описание.

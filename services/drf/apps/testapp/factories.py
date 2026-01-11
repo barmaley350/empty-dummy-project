@@ -7,7 +7,7 @@ from faker import Faker
 
 from apps.testapp.models import Comment, Project, Tag
 
-factory.Faker._DEFAULT_LOCALE = "ru_RU"  # noqa: SLF001
+factory.Faker._DEFAULT_LOCALE = "ru_RU"  # noqa: SLF001  pylint: disable=W0212
 fake_en = Faker("en_US")
 
 

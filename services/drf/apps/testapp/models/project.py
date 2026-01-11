@@ -30,7 +30,7 @@ class Project(models.Model):
         verbose_name = "Проект"
         verbose_name_plural = "Проекты"
 
-    def __str__(self) -> str:
+    def __str__(self) -> str:  # pylint: disable=E0307
         """Docstring for __str__.
 
         :param self: Description

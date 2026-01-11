@@ -13,6 +13,8 @@ sphinx = "*"
 sphinx-rtd-theme = "*"
 sphinxcontrib-django = "*"
 drf-spectacular = "*"
+pylint = "*"
+pylint-django = "*"
 
 [dev-packages]
 django-debug-toolbar = "*"

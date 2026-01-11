@@ -33,7 +33,7 @@ class CommentAdmin(admin.ModelAdmin):
         """
         fields = [
             field.name
-            for field in self.model._meta.fields  # noqa: SLF001
+            for field in self.model._meta.fields  # noqa: SLF001 pylint: disable=W0212
             if field.name not in ["id"]
         ]
         fields.extend(["project_description"])
