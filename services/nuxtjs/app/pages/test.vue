@@ -95,7 +95,7 @@ const platforma = {
                 </LayoutTitle>
             </div>
             <div class="flex justify-center">
-                <ButtonsGreen class="text-3xl font-bold rounded-4xl">Хочу в команду!</ButtonsGreen>
+                <ButtonsGreen class="text-3xl font-bold py-3">Хочу в команду!</ButtonsGreen>
             </div>
 
             <div class="grid grid-cols-4 gap-5 text-center">
@@ -157,37 +157,7 @@ const platforma = {
             </div>
         </div>
 
-        <!-- <div class="flex flex-col gap-10">
-            <div class="flex justify-center">
-                <LayoutText>
-                    <template #header_primary>
-                        <LayoutTitle class="text-5xl font-bold underline">
-                            Возможности платформы
-                        </LayoutTitle>
-                    </template>
-                    <template #header_secondary>
-                        <LayoutTitle class="text-2xl text-gray-500 dark:text-gray-300">
-                            Мы создали простой и эффективный инструмент для профессионального нетворкинга
-                        </LayoutTitle>
-                    </template>
-                </LayoutText>
-            </div>
 
-            <div class="grid grid-cols-2 gap-5">
-                <LayoutCard v-for="item in platforma" :key="item.step" class="h-full">
-                    <template #title>
-                        <LayoutBadges
-                            class="flex p-5 text-5xl mr-3 bg-green-600 text-white rounded-md h-auto items-center font-bold">
-                            <Icon :name=item.icon />
-                        </LayoutBadges>
-                        <LayoutTitle class="text-2xl">{{ item.label }}</LayoutTitle>
-                    </template>
-                    <template #description>
-                        <div class="text-gray-500 dark:text-gray-300 text-xl">{{ item.text }}</div>
-                    </template>
-                </LayoutCard>
-            </div>
-        </div> -->
         <div class="flex flex-col gap-10">
             <div class="flex justify-center">
                 <LayoutText>
@@ -243,7 +213,7 @@ const platforma = {
             </div>
 
             <div class="flex justify-center">
-                <ButtonsGreen class="text-3xl font-bold rounded-4xl">Хочу в команду!</ButtonsGreen>
+                <ButtonsGreen class="text-3xl font-bold py-3">Хочу в команду!</ButtonsGreen>
             </div>
         </div>
     </div>
