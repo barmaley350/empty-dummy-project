@@ -23,6 +23,9 @@ class ProtectedUrlView(View):
             "/django-api-swagger",
             "/django-api-redoc",
             "/django-api-schema",
+            "/fastapi/docs",
+            "/fastapi/redoc",
+            "/fastapi/openapi.json",
         ]
         original_uri = request.headers.get("X-Original-URI")
         return original_uri.startswith(tuple(protected_urls))
