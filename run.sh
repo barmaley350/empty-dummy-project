@@ -7,7 +7,8 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-PATH_TO_BACKEND="/services/drf"
+PATH_TO_BACKEND_DJANGO="/services/drf"
+PATH_TO_BACKEND_FASTAPI="/services/fastapi"
 PATH_TO_BACKEND_DOCS="/services/drf/apps/sphinx_docs/docs"
 
 # Абсолютный путь к каталогу скрипта
@@ -104,8 +105,10 @@ help() {
     print_text_white "[command] - Персональные команды\n"
     print_text_yellow "g1"
     print_text_white " \u2501 git checkout main && git merge dev && git push origin main && git checkout dev\n" 
-    print_text_yellow "l1"
-    print_text_white " \u2501 find ./apps -name "*.py" | xargs pipenv run pylint --rcfile=.pylintrc\n" 
+    print_text_yellow "lbd"
+    print_text_white " \u2501 (backend/django) find ./apps -name "*.py" | xargs pipenv run pylint --rcfile=.pylintrc\n" 
+    print_text_yellow "lbf"
+    print_text_white " \u2501 (backend/fastapi) find ./app -name "*.py" | xargs pipenv run pylint --rcfile=.pylintrc\n"     
     echo -e ""
 }
 # pytest
@@ -144,7 +147,7 @@ command_gendoc() {
 } 
 generate_sphinx_docs() {
     # cd $SCRIPT_DIR$PATH_TO_BACKEND_DOCS
-    cd $SCRIPT_DIR$PATH_TO_BACKEND
+    cd $SCRIPT_DIR$PATH_TO_BACKEND_DJANGO
     rm -rf apps/sphinx_docs/docs/_build/html
     # pipenv run make SOURCEDIR=apps/sphinx_docs/docs BUILDDIR=apps/sphinx_docs/docs/_build/html clean
     # pipenv run make SOURCEDIR=apps/sphinx_docs/docs BUILDDIR=apps/sphinx_docs/docs/_build/html html
@@ -162,7 +165,7 @@ generate_sphinx_docs() {
 
 # Generate sphinx docs for backend/django
 generate_graph_models() {
-    cd $SCRIPT_DIR$PATH_TO_BACKEND
+    cd $SCRIPT_DIR$PATH_TO_BACKEND_DJANGO
     print_text_white "Создаем graph_models testapp -o apps/sphinx_docs/docs/_static/testapp.png\n"
     pipenv run python3 manage.py graph_models testapp -o apps/sphinx_docs/docs/_static/testapp.png
 
@@ -196,7 +199,7 @@ command_collectstatic() {
     return 0
 }
 command_ruff_check() {
-    cd $SCRIPT_DIR$PATH_TO_BACKEND
+    cd $SCRIPT_DIR$PATH_TO_BACKEND_DJANGO
 
     pipenv run ruff check "$@"
 
@@ -210,7 +213,7 @@ command_ruff_check() {
 
 command_ruff_format() {
     # Ruff formater backend/django
-    cd $SCRIPT_DIR$PATH_TO_BACKEND
+    cd $SCRIPT_DIR$PATH_TO_BACKEND_DJANGO
     pipenv run ruff format
 
     if [ $? -ne 0 ]; then
@@ -220,7 +223,7 @@ command_ruff_format() {
     print_text_block success "Успешное завершение ruff format $@"
 }
 command_django_apps() {
-    cd $SCRIPT_DIR$PATH_TO_BACKEND
+    cd $SCRIPT_DIR$PATH_TO_BACKEND_DJANGO
     pipenv run python3 manage.py startapp $@ apps/$@
 
     if [ $? -ne 0 ]; then
@@ -254,18 +257,30 @@ command_git() {
 
 }
 
-command_pylint() {
-    cd $SCRIPT_DIR$PATH_TO_BACKEND
+command_pylint_django() {
+    cd $SCRIPT_DIR$PATH_TO_BACKEND_DJANGO
         
     find ./apps -name "*.py" | xargs pipenv run pylint --rcfile=.pylintrc
 
     if [ $? -ne 0 ]; then
-        print_text_block error "Ошибка выполнения комманды git"
+        print_text_block error "Ошибка выполнения комманды backend/django/pylint"
         exit $?
     fi
-    print_text_block success "Команда git выполнилась успешно"
+    print_text_block success "Команда backend/django/pylint выполнилась успешно"
     return 0
+}
 
+command_pylint_fastapi() {
+    cd $SCRIPT_DIR$PATH_TO_BACKEND_FASTAPI
+        
+    find ./app -name "*.py" | xargs pipenv run pylint --rcfile=.pylintrc
+
+    if [ $? -ne 0 ]; then
+        print_text_block error "Ошибка выполнения комманды backend/fastapi/pylint"
+        exit $?
+    fi
+    print_text_block success "Команда backend/fastapi/pylint выполнилась успешно"
+    return 0
 }
 
 command_ruff_all() {
@@ -331,9 +346,12 @@ main() {
         g1)
             command_git $@
             ;;       
-        l1)
-            command_pylint $@
-            ;;                                                                                                      
+        lbf)
+            command_pylint_fastapi $@
+            ;;     
+        lbd)
+            command_pylint_django $@
+            ;;                                                                                                               
         *)
             print_text_error "Не известная комманда - $command"
             ;;        
