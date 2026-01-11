@@ -80,6 +80,7 @@ factory-boy==3.3.3
 gunicorn==23.0.0
 psycopg2-binary==2.9.11
 pydot==4.0.1
+pylint-django==2.7.0
 pytest-django==4.11.1
 python-dotenv==1.2.1
 ruff==0.14.8
@@ -98,6 +99,7 @@ cd services/fastapi && pipenv graph | grep -E '^[A-Za-z].*=='
 ```
 fastapi==0.128.0
 psycopg2-binary==2.9.11
+pylint==4.0.4
 ruff==0.14.11
 sqlacodegen==3.2.0
 uvicorn==0.40.0
