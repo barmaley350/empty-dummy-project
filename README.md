@@ -47,8 +47,8 @@
 | ------------- | - | ------------- | - |
 | frontend/nuxtjs | `нет` | [http://localhost:1338/](http://localhost:1338/)  | frontend на базе NuxtJs |
 | backend/fastapi/api  | `да` | [http://localhost:1338/fastapi/api/v1/](http://localhost:1338/fastapi/api/v1/)  | api на базе FastApi | 
-| backend/fastapi/api/swagger  | `да` | [http://localhost:1338/fastapi/docs/](http://localhost:1338/fastapi/docs/)  | Документация к fastapi/api/swagger | 
-| backend/fastapi/api/redoc  | `да` | [http://localhost:1338/fastapi/redoc/](http://localhost:1338/fastapi/redoc/)  | Документация к fastapi/api/redoc | 
+| backend/fastapi/api/swagger  | `да` | [http://localhost:1338/fastapi/docs/](http://localhost:1338/fastapi/docs/)  | Документация fastapi/api/swagger | 
+| backend/fastapi/api/redoc  | `да` | [http://localhost:1338/fastapi/redoc/](http://localhost:1338/fastapi/redoc/)  | Документация fastapi/api/redoc | 
 | backend/drf/api | `да` | [http://localhost:1338/api/v1/](http://localhost:1338/api/v1/)  | api на базе DRF |
 | backend/django/admin | `да` | [http://localhost:1338/admin/](http://localhost:1338/admin/)  | Django Admin Panel |
 | backend/sphinx  | `да` | [http://localhost:1338/docs/](http://localhost:1338/docs/)  | Документация к django моделям | 
