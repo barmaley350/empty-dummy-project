@@ -104,6 +104,8 @@ help() {
     print_text_white "[command] - Персональные команды\n"
     print_text_yellow "g1"
     print_text_white " \u2501 git checkout main && git merge dev && git push origin main && git checkout dev\n" 
+    print_text_yellow "l1"
+    print_text_white " \u2501 find ./apps -name "*.py" | xargs pipenv run pylint --rcfile=.pylintrc\n" 
     echo -e ""
 }
 # pytest
@@ -251,6 +253,21 @@ command_git() {
     return 0
 
 }
+
+command_pylint() {
+    cd $SCRIPT_DIR$PATH_TO_BACKEND
+        
+    find ./apps -name "*.py" | xargs pipenv run pylint --rcfile=.pylintrc
+
+    if [ $? -ne 0 ]; then
+        print_text_block error "Ошибка выполнения комманды git"
+        exit $?
+    fi
+    print_text_block success "Команда git выполнилась успешно"
+    return 0
+
+}
+
 command_ruff_all() {
     command_ruff_check
     command_ruff_format
@@ -313,7 +330,10 @@ main() {
             ;;      
         g1)
             command_git $@
-            ;;                                                                                               
+            ;;       
+        l1)
+            command_pylint $@
+            ;;                                                                                                      
         *)
             print_text_error "Не известная комманда - $command"
             ;;        
